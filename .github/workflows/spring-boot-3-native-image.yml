@@ -1,4 +1,4 @@
-name: spring-native-image
+name: spring-boot-3-native-image
 on:
   push:
     paths:
