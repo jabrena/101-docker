@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Update local toolchain
+      - name: hello-world
         run: |
           sudo apt-get update
           sudo apt-get install -y wget gcc libz-dev upx
@@ -21,12 +21,8 @@ jobs:
           wget https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-$VERSION/graalvm-ce-java19-linux-amd64-$VERSION.tar.gz
           sudo tar -xvzf graalvm-ce-java19-linux-amd64-$VERSION.tar.gz
           sudo rm graalvm-ce-java19-linux-amd64-$VERSION.tar.gz
-          export CURRENT=$(pwd)
-          echo $CURRENT
-          sudo $CURRENT/graalvm-ce-java19-$VERSION/bin/gu install native-image
-          export PATH=$CURRENT/graalvm-ce-java19-$VERSION/bin:$PATH
-
-      - name: hello-world
-        run: |
+          sudo $(pwd)/graalvm-ce-java19-$VERSION/bin/gu install native-image
+          export PATH=$(pwd)/graalvm-ce-java19-$VERSION/bin:$PATH
+          
           cd hello-world
           ./build-hello.sh
