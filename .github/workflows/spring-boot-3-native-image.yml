@@ -1,0 +1,37 @@
+name: spring-boot-3-native-image
+on:
+  push:
+    paths:
+      - 'spring-boot-3-native-image/**'
+      - '.github/workflows/spring-boot-3-native-image.yml'
+  pull_request:
+    paths:
+      - 'spring-boot-3-native-image/**'
+      - '.github/workflows/spring-boot-3-native-image.yml'
+  schedule:
+    - cron: "0 0 1 * *" # run every month
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  run:
+    name: Run 'spring-boot-3-native-graal'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v2
+      - uses: graalvm/setup-graalvm@v1
+        with:
+          version: 'dev'
+          java-version: '17'
+          components: 'native-image'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          cache: 'maven'
+      - name: Run 'spring-boot-3-native-image'
+        run: |
+          cd spring-boot-3-native-image
+          #mvn --no-transfer-progress package
+          mvn --no-transfer-progress native:compile -Pnative package
+          ./target/benchmark-jibber &
+          sleep 5
+          curl http://localhost:8080/jibber
