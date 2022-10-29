@@ -21,8 +21,10 @@ jobs:
           wget https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-$VERSION/graalvm-ce-java19-linux-amd64-$VERSION.tar.gz
           sudo tar -xvzf graalvm-ce-java19-linux-amd64-$VERSION.tar.gz
           sudo rm graalvm-ce-java19-linux-amd64-$VERSION.tar.gz
-          sudo $pwd/graalvm-ce-java19-$VERSION/bin/gu install native-image
-          export PATH=$pwd/graalvm-ce-java19-$VERSION/bin:$PATH
+          CURRENT = pwd
+          echo $CURRENT
+          sudo $CURRENT/graalvm-ce-java19-$VERSION/bin/gu install native-image
+          export PATH=$CURRENT/graalvm-ce-java19-$VERSION/bin:$PATH
 
       - name: hello-world
         run: |
