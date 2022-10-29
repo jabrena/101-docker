@@ -30,7 +30,7 @@ jobs:
       - name: Run 'spring-native-image'
         run: |
           cd spring-boot-3-native-image
-          mvn --no-transfer-progress package
+          #mvn --no-transfer-progress package
           mvn --no-transfer-progress package -Dnative
           ./target/jibber &
           sleep 5
