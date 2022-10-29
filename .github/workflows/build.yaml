@@ -19,10 +19,10 @@ jobs:
           sudo rm -rf /var/lib/apt/lists/*
           export VERSION=22.3.0
           wget https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-$VERSION/graalvm-ce-java19-linux-amd64-$VERSION.tar.gz
-          sudo tar -xvzf graalvm-ce-$VERSION-linux-amd64.tar.gz
-          sudo rm graalvm-ce-linux-amd64-$VERSION.tar.gz
-          sudo /graalvm-ce-$VERSION/bin/gu install native-image
-          export PATH=/graalvm-ce-$VERSION/bin:$PATH
+          sudo tar -xvzf graalvm-ce-java19-linux-amd64-$VERSION.tar.gz
+          sudo rm graalvm-ce-java19-linux-amd64-$VERSION.tar.gz
+          sudo /graalvm-ce-java19-linux-amd64-$VERSION/bin/gu install native-image
+          export PATH=/graalvm-ce-java19-linux-amd64-$VERSION/bin:$PATH
 
       - name: hello-world
         run: |
