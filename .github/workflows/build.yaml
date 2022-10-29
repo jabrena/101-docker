@@ -25,14 +25,4 @@ jobs:
           export PATH=$(pwd)/graalvm-ce-java19-$VERSION/bin:$PATH
           
           cd hello-world
-          # ./build-hello.sh
-          
-          java -version
-          javac Hello.java
-          java Hello.java
-          # native-image --native-image-info --verbose --static --libc=musl -o hello.static Hello
-          native-image --native-image-info --verbose --static -o hello.static Hello
-          docker build . -f Dockerfile.static -t hello:static
-          echo "Generated Docker Container Images"
-          docker images hello
-          docker run hello:static
+          ./build-hello.sh
