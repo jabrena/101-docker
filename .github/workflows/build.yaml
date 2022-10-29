@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Update local toolchain
+        run: |
+          apt-get update && \
+          apt-get install -y wget gcc libz-dev upx && \
+          rm -rf /var/lib/apt/lists/*
+          export VERSION=22.3
+          wget https://github.com/oracle/graal/releases/download/vm-$VERSION/graalvm-ce-linux-amd64-$VERSION.tar.gz && \
+          tar -xvzf graalvm-ce-$VERSION-linux-amd64.tar.gz && \
+          rm graalvm-ce-linux-amd64-$VERSION.tar.gz && \
+          /graalvm-ce-$VERSION/bin/gu install native-image
+          export PATH=/graalvm-ce-$VERSION/bin:$PATH
+
+      - name: hello-world
+        run: |
+          cd hello-world
+          build-hello.sh
