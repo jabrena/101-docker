@@ -15,7 +15,7 @@ permissions:
   contents: read
 jobs:
   run:
-    name: Run 'spring-native-graal'
+    name: Run 'spring-boot-3-native-graal'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -27,7 +27,7 @@ jobs:
           components: 'native-image'
           github-token: ${{ secrets.GITHUB_TOKEN }}
           cache: 'maven'
-      - name: Run 'spring-native-image'
+      - name: Run 'spring-boot-3-native-image'
         run: |
           cd spring-boot-3-native-image
           #mvn --no-transfer-progress package
