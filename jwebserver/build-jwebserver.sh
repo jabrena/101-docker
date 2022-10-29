@@ -13,11 +13,17 @@ docker build . -f Dockerfile.upx -t jwebserver:upx
 echo "Generated Executables"
 ls -lh jwebserver.static jwebserver.upx
 
+docker build . -f Dockerfile.jwebserver -t jwebserver:jdk
+
 echo "Generated Docker Container Images"
 docker images jwebserver
 
 echo "Run images as final E2E tests"
-#time docker run jwebserver:static
-#time docker run jwebserver:upx
+#time docker run -p 8000:8000 jwebserver:static
+#time docker run -p 8000:8001 jwebserver:upx
+#time docker run -p 8000:8002 jwebserver:jdk
+#curl localhost:8000
+#curl localhost:8001
+#curl localhost:8002
 
 
