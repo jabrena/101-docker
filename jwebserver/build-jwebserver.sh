@@ -17,7 +17,7 @@ echo "Generated Docker Container Images"
 docker images jwebserver
 
 echo "Run images as final E2E tests"
-time docker run jwebserver:static
-time docker run jwebserver:upx
+#time docker run jwebserver:static
+#time docker run jwebserver:upx
 
 
