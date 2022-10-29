@@ -27,4 +27,4 @@ jobs:
       - name: hello-world
         run: |
           cd hello-world
-          build-hello.sh
+          ./build-hello.sh
