@@ -1,0 +1,122 @@
+[
+  {
+    "directory": "org.example/library",
+    "module": "org.example:library"
+  },
+  {
+    "directory": "org.jline/jline",
+    "module": "org.jline:jline"
+  },
+  {
+    "module": "org.jline:jline-terminal",
+    "requires": [
+      "org.jline:jline"
+    ]
+  },
+  {
+    "module": "org.jline:jline-console",
+    "requires": [
+      "org.jline:jline"
+    ]
+  },
+  {
+    "directory": "com.h2database/h2",
+    "module": "com.h2database:h2"
+  },
+  {
+    "directory": "org.hdrhistogram/HdrHistogram",
+    "module": "org.hdrhistogram:HdrHistogram"
+  },
+  {
+    "directory": "org.hibernate.orm/hibernate-core",
+    "module": "org.hibernate.orm:hibernate-core"
+  },
+  {
+    "directory": "org.hibernate.validator/hibernate-validator",
+    "module": "org.hibernate.validator:hibernate-validator"
+  },
+  {
+    "directory": "org.apache.tomcat.embed/tomcat-embed-core",
+    "module": "org.apache.tomcat.embed:tomcat-embed-core"
+  },
+  {
+    "directory": "io.netty/netty-common",
+    "module": "io.netty:netty-common"
+  },
+  {
+    "directory": "io.netty/netty-transport",
+    "module": "io.netty:netty-transport"
+  },
+  {
+    "directory": "mysql/mysql-connector-java",
+    "module": "mysql:mysql-connector-java"
+  },
+  {
+    "directory": "org.postgresql/postgresql",
+    "module": "org.postgresql:postgresql"
+  },
+  {
+    "directory": "org.apache.commons/commons-pool2",
+    "module": "org.apache.commons:commons-pool2"
+  },
+  {
+    "directory": "ch.qos.logback/logback-classic",
+    "module": "ch.qos.logback:logback-classic"
+  },
+  {
+    "directory": "com.zaxxer/HikariCP",
+    "module": "com.zaxxer:HikariCP"
+  },
+  {
+    "directory": "org.jetbrains.kotlin/kotlin-reflect",
+    "module": "org.jetbrains.kotlin:kotlin-reflect"
+  },
+  {
+    "directory": "org.quartz-scheduler/quartz",
+    "module": "org.quartz-scheduler:quartz"
+  },
+  {
+    "directory": "org.mariadb.jdbc/mariadb-java-client",
+    "module": "org.mariadb.jdbc:mariadb-java-client"
+  },
+  {
+    "directory": "org.flywaydb/flyway-core",
+    "module": "org.flywaydb:flyway-core"
+  },
+  {
+    "directory": "com.sun.mail/jakarta.mail",
+    "module": "com.sun.mail:jakarta.mail"
+  },
+  {
+    "directory": "org.glassfish.jaxb/jaxb-runtime",
+    "module": "org.glassfish.jaxb:jaxb-runtime"
+  },
+  {
+    "directory": "org.thymeleaf/thymeleaf",
+    "module": "org.thymeleaf:thymeleaf"
+  },
+  {
+    "directory": "org.thymeleaf/thymeleaf-spring6",
+    "module": "org.thymeleaf:thymeleaf-spring6"
+  },
+  {
+    "directory": "org.freemarker/freemarker",
+    "module": "org.freemarker:freemarker"
+  },
+  {
+    "directory": "com.ecwid.consul/consul-api",
+    "module": "com.ecwid.consul:consul-api"
+  },
+  {
+    "directory": "io.undertow/undertow-core",
+    "module": "io.undertow:undertow-core"
+  },
+  {
+    "directory": "org.thymeleaf.extras/thymeleaf-extras-springsecurity6",
+    "module": "org.thymeleaf.extras:thymeleaf-extras-springsecurity6"
+  },
+  {
+    "directory": "org.eclipse.jetty/jetty-server",
+    "module": "org.eclipse.jetty:jetty-server"
+  }
+]
