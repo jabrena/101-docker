@@ -25,4 +25,8 @@ jobs:
           export PATH=$(pwd)/graalvm-ce-java19-$VERSION/bin:$PATH
           
           cd hello-world
-          ./build-hello.sh
+          # ./build-hello.sh
+          
+          java -version
+          javac Hello.java
+          native-image --static --libc=musl -o hello.static Hello
