@@ -18,7 +18,7 @@ echo "Generated Docker Container Images"
 docker images hello
 
 echo "Run images as final E2E tests"
-docker run hello:static
-docker run hello:upx
+time docker run hello:static
+time docker run hello:upx
 
 
