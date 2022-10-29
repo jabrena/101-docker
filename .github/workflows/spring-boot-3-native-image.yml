@@ -32,6 +32,6 @@ jobs:
           cd spring-boot-3-native-image
           #mvn --no-transfer-progress package
           mvn --no-transfer-progress native:compile -Pnative package
-          ./target/jibber &
+          ./target/benchmark-jibber &
           sleep 5
           curl http://localhost:8080/jibber
