@@ -30,4 +30,5 @@ jobs:
           java -version
           javac Hello.java
           java Hello.java
-          native-image --static --libc=musl -o hello.static Hello
+          # native-image --native-image-info --verbose --static --libc=musl -o hello.static Hello
+          native-image --native-image-info --verbose --static -o hello.static Hello
