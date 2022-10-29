@@ -1,0 +1,3 @@
+FROM openjdk:19-jdk-slim
+COPY index.html /web/index.html
+CMD ["sh", "-c", "jwebserver -b 0.0.0.0 -d /web"]

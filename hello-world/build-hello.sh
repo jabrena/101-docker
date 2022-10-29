@@ -6,6 +6,7 @@ java -version
 javac Hello.java
 #native-image --static --libc=musl -o hello.static Hello
 native-image --native-image-info --verbose --static -o hello.static Hello
+ldd hello.static
 docker build . -f Dockerfile.static -t hello:static
 rm -f hello.upx
 upx --lzma --best -o hello.upx hello.static
