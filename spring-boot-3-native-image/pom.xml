@@ -178,6 +178,7 @@
 				We won't sue this when building a native executable due to the possibility that you are building on something
 				that isn't linux. The resultant executable wouldn't work in side the linux container
 			-->
+			<!--
 			<plugin>
 				<groupId>com.spotify</groupId>
 				<artifactId>dockerfile-maven-plugin</artifactId>
@@ -200,6 +201,7 @@
 					<dockerfile>Dockerfiles/${docker-file}</dockerfile>
 				</configuration>
 			</plugin>
+			-->
 		</plugins>
 	</build>
 
