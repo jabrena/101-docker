@@ -1,5 +1,6 @@
 #!/bin/sh
 
+java -version
 javac Hello.java
 native-image --static --libc=musl -o hello.static Hello
 docker build . -f Dockerfile.static -t hello:static
