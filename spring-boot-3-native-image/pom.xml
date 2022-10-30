@@ -79,7 +79,7 @@
 				<artifactId>native-maven-plugin</artifactId>
 				<configuration>
 					<buildArgs>
-						<buildArg>--native-image-info --verbose --static --libc=musl</buildArg>
+						<buildArg>--native-image-info --verbose --static</buildArg>
 					</buildArgs>
 				</configuration>
 			</plugin>
