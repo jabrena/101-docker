@@ -18,3 +18,5 @@ cd zlib-${ZLIB_VERSION}
 make
 make install
 cd ..
+
+mvn --no-transfer-progress native:compile -Pnative package
