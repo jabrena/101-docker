@@ -80,7 +80,7 @@
 				<artifactId>native-maven-plugin</artifactId>
 				<configuration>
 					<buildArgs>
-						<buildArg>--static</buildArg>
+						<buildArg>- -static</buildArg>
 					</buildArgs>
 				</configuration>
 			</plugin>
