@@ -74,6 +74,16 @@
 
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.graalvm.buildtools</groupId>
+				<artifactId>native-maven-plugin</artifactId>
+				<version>0.9.14</version>
+				<configuration>
+					<buildArgs>
+						<buildArg>--native-image-info --verbose --static</buildArg>
+					</buildArgs>
+				</configuration>
+			</plugin>
 			<!--
 				Creates a Jar with dependencies and a manifest
 			-->
