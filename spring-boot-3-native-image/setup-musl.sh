@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Download musl
 wget http://more.musl.cc/10/x86_64-linux-musl/x86_64-linux-musl-native.tgz
 tar -xzf x86_64-linux-musl-native.tgz
