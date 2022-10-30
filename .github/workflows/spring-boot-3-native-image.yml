@@ -33,7 +33,7 @@ jobs:
           #
           # Setup musl toolchain
           #
-          ./setup-musl.sh
+          #./setup-musl.sh
           #
           # Spring Native compilation
           #
@@ -43,4 +43,5 @@ jobs:
           ls -lh ./target/benchmark-jibber ./target/benchmark-jibber-upx
           time ./target/benchmark-jibber-upx &
           sleep 5
-          curl http://localhost:8080/jibber
+          #curl http://localhost:8080/jibber/
+          curl -X POST http://localhost:8080/actuator/shutdown
