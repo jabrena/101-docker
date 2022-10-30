@@ -38,6 +38,8 @@ jobs:
           # Spring Native compilation
           #
           mvn --no-transfer-progress native:compile -Pnative package
+          echo "Generated Executables"
+          ls -lh ./target/benchmark-jibber
           ./target/benchmark-jibber &
           sleep 5
           curl http://localhost:8080/jibber
