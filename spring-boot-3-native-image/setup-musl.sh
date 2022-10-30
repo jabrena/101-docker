@@ -1,20 +1,19 @@
-#!/bin/sh
-
-ZLIB_VERSION=1.2.13
-TOOLCHAIN_DIR=`pwd`/x86_64-linux-musl-native
-
 # Download musl
-wget -q http://more.musl.cc/10/x86_64-linux-musl/x86_64-linux-musl-native.tgz
+wget http://more.musl.cc/10/x86_64-linux-musl/x86_64-linux-musl-native.tgz
 tar -xzf x86_64-linux-musl-native.tgz
 rm x86_64-linux-musl-native.tgz
+export TOOLCHAIN_DIR=`pwd`/x86_64-linux-musl-native
+export CC=${TOOLCHAIN_DIR}/bin/gcc
 
 # Download, build, install zlib into TOOLCHAIN_DIR
-echo "zlib version=${ZLIB_VERSION}"
-wget -q https://zlib.net/fossils/zlib-${ZLIB_VERSION}.tar.gz
-tar -xzf zlib-${ZLIB_VERSION}.tar.gz
-rm zlib-${ZLIB_VERSION}.tar.gz
-cd zlib-${ZLIB_VERSION}
+wget https://zlib.net/zlib-1.2.12.tar.gz
+tar -xzf zlib-1.2.12.tar.gz
+rm zlib-1.2.12.tar.gz
+cd zlib-1.2.12
 ./configure --prefix=${TOOLCHAIN_DIR} --static
 make
 make install
 cd ..
+
+# Add TOOLCHAIN_DIR to PATH
+export PATH=${TOOLCHAIN_DIR}/bin:${PATH}
