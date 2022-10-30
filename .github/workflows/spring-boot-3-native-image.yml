@@ -30,8 +30,17 @@ jobs:
       - name: Run 'spring-boot-3-native-image'
         run: |
           cd spring-boot-3-native-image
-          #mvn --no-transfer-progress package
+          #
+          # Setup musl toolchain
+          #
+          ./setup-musl.sh
+          #
+          # Spring Native compilation
+          #
           mvn --no-transfer-progress native:compile -Pnative package
-          ./target/benchmark-jibber &
+          echo "Generated Executables"
+          upx --lzma --best ./target/benchmark-jibber -o ./target/benchmark-jibber-upx
+          ls -lh ./target/benchmark-jibber ./target/benchmark-jibber-upx
+          time ./target/benchmark-jibber-upx &
           sleep 5
           curl http://localhost:8080/jibber
