@@ -33,7 +33,7 @@ jobs:
           #
           # Setup musl toolchain
           #
-          ./setup-musl.sh
+          #./setup-musl.sh
           #
           # Spring Native compilation
           #
