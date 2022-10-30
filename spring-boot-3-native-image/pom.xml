@@ -74,17 +74,15 @@
 
 	<build>
 		<plugins>
-			<!--
 			<plugin>
 				<groupId>org.graalvm.buildtools</groupId>
 				<artifactId>native-maven-plugin</artifactId>
 				<configuration>
 					<buildArgs>
-						<buildArg>- -static</buildArg>
+						<buildArg>--static</buildArg>
 					</buildArgs>
 				</configuration>
 			</plugin>
-			-->
 			<!--
 				Creates a Jar with dependencies and a manifest
 			-->
