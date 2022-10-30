@@ -18,10 +18,3 @@ cd zlib-${ZLIB_VERSION}
 make
 make install
 cd ..
-
-TOOLCHAIN_DIR=`pwd`/../x86_64-linux-musl-native
-CC=${TOOLCHAIN_DIR}/bin/gcc
-PATH=${TOOLCHAIN_DIR}/bin:${PATH}
-
-
-mvn --no-transfer-progress native:compile -Pnative package
