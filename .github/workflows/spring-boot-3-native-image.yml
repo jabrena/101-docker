@@ -41,6 +41,6 @@ jobs:
           echo "Generated Executables"
           upx --lzma --best ./target/benchmark-jibber -o ./target/benchmark-jibber-upx
           ls -lh ./target/benchmark-jibber ./target/benchmark-jibber-upx
-          ./target/benchmark-jibber &
+          time ./target/benchmark-jibber-upx &
           sleep 5
           curl http://localhost:8080/jibber
