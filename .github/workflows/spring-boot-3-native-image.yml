@@ -37,9 +37,10 @@ jobs:
           #
           # Spring Native compilation
           #
-          #mvn --no-transfer-progress native:compile -Pnative package
+          mvn --no-transfer-progress native:compile -Pnative package
           echo "Generated Executables"
-          ls -lh ./target/benchmark-jibber
+          upx --lzma --best ./target/benchmark-jibber -o ./target/benchmark-jibber-upx
+          ls -lh ./target/benchmark-jibber ./target/benchmark-jibber-upx
           ./target/benchmark-jibber &
           sleep 5
           curl http://localhost:8080/jibber
