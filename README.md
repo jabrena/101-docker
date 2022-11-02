@@ -12,3 +12,4 @@ A lab to explore ideas about how to use Docker concepts applied to poliglot apps
 - https://graalvm.github.io/native-build-tools/latest/
 - https://graalvm.github.io/native-build-tools/latest/maven-plugin.html
 - https://start.spring.io/
+- https://github.com/wagoodman/dive
