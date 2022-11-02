@@ -1,5 +1,11 @@
 #!/bin/sh
 
+TOOLCHAIN_DIR=`pwd`/../x86_64-linux-musl-native
+CC=${TOOLCHAIN_DIR}/bin/gcc
+PATH=${TOOLCHAIN_DIR}/bin:${PATH}
+
+set -x
+
 # Original script from: https://github.com/shaunsmith/tiny-java-containers/tree/main/jwebserver
 
 #native-image --static --libc=musl -m jdk.httpserver -o jwebserver.static
