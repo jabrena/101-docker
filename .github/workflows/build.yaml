@@ -21,16 +21,15 @@ jobs:
           components: 'native-image'
           github-token: ${{ secrets.GITHUB_TOKEN }}
           cache: 'maven'
-      - name: Run Java Hello World
+      - name: Run musl setup
         run: |
-          cd 1_java_hello_world
           #
           # Setup musl toolchain
           #
           ./setup-musl.sh
-          #
-          # Hello World
-          #
+      - name: Run Java Hello World
+        run: |
+          cd 1_java_hello_world
           ./build.sh
       - name: Run Java jwebserver
         run: |
