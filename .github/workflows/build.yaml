@@ -11,7 +11,7 @@ jobs:
   run:
     name: Run Docker Examples
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v2
       - uses: graalvm/setup-graalvm@v1
@@ -27,11 +27,11 @@ jobs:
           # Setup musl toolchain
           #
           ./setup-musl.sh
-      - name: Run Java Hello World
-        run: |
-          cd 1_java_hello_world
-          ./build.sh
       - name: Run Java jwebserver
         run: |
           cd jwebserver
           ./build-jwebserver.sh
+      - name: Run Java Hello World
+        run: |
+          cd 1_java_hello_world
+          ./build.sh
