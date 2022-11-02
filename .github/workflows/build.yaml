@@ -30,7 +30,7 @@ jobs:
       - name: Run Java jwebserver
         run: |
           cd jwebserver
-          ./build-jwebserver.sh
+          ./build-all.sh
       - name: Run Java Hello World
         run: |
           cd 1_java_hello_world
