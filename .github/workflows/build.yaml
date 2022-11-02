@@ -45,10 +45,11 @@ jobs:
           sleep 5
           #curl http://localhost:8080/jibber/
           curl -X POST http://localhost:8080/actuator/shutdown
-          docker build -f Dockerfiles/Dockerfile.native --build-arg APP_FILE=benchmark-jibber -t jibber-benchmark:native.0.0.1-SNAPSHOT .
+          docker build -f Dockerfiles/Dockerfile.native --build-arg APP_FILE=benchmark-jibber-upx -t jibber-benchmark:native.0.0.1-SNAPSHOT .
           docker run --rm --name native -d -p 8080:8080 jibber-benchmark:native.0.0.1-SNAPSHOT
           sleep 5
           curl -X POST http://localhost:8080/actuator/shutdown
+          docker images
       - name: Run Java Hello World
         run: |
           cd 1_java_hello_world
