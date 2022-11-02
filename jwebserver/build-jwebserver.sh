@@ -6,6 +6,8 @@ PATH=${TOOLCHAIN_DIR}/bin:${PATH}
 
 set -x
 
+java -version
+
 # Original script from: https://github.com/shaunsmith/tiny-java-containers/tree/main/jwebserver
 
 #native-image --static --libc=musl -m jdk.httpserver -o jwebserver.static
