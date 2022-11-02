@@ -63,8 +63,8 @@ When we build it will also generate a Docker image with our native application i
 To build the native executable version of the application:
 
 ```shell
-# The -Dnative property is used to turn on building a native executable within the maven file
-mvn package -Dnative
+# The -Pnative profile is used to turn on building a native executable within the maven file
+mvn package native:compile -Pnative 
 ```
 
 This will create a binary executable `target/jibber`. You can run this and test it in the same way as we did the Java

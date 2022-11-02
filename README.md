@@ -9,4 +9,6 @@ A lab to explore ideas about how to use Docker concepts applied to poliglot apps
 - https://github.com/oktadev/native-java-examples
 - https://docs.spring.io/spring-native/docs/current/reference/htmlsingle/
 - https://docs.spring.io/spring-boot/docs/current/maven-plugin/reference/htmlsingle/
-- https://graalvm.github.io/native-build-tools/latest/index.html
+- https://graalvm.github.io/native-build-tools/latest/
+- https://graalvm.github.io/native-build-tools/latest/maven-plugin.html
+- https://start.spring.io/

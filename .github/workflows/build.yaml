@@ -7,37 +7,26 @@ on:
     branches: [main]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: hello-world
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y wget gcc libz-dev upx musl-tools
-          sudo rm -rf /var/lib/apt/lists/*
-          export VERSION=22.3.0
-          wget https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-$VERSION/graalvm-ce-java19-linux-amd64-$VERSION.tar.gz
-          sudo tar -xvzf graalvm-ce-java19-linux-amd64-$VERSION.tar.gz
-          sudo rm graalvm-ce-java19-linux-amd64-$VERSION.tar.gz
-          sudo $(pwd)/graalvm-ce-java19-$VERSION/bin/gu install native-image
-          export PATH=$(pwd)/graalvm-ce-java19-$VERSION/bin:$PATH
-          
-          cd hello-world
-          ./build-hello.sh
-
-      - name: jwebserver
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y wget gcc libz-dev upx musl-tools
-          sudo rm -rf /var/lib/apt/lists/*
-          export VERSION=22.3.0
-          wget https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-$VERSION/graalvm-ce-java19-linux-amd64-$VERSION.tar.gz
-          sudo tar -xvzf graalvm-ce-java19-linux-amd64-$VERSION.tar.gz
-          sudo rm graalvm-ce-java19-linux-amd64-$VERSION.tar.gz
-          sudo $(pwd)/graalvm-ce-java19-$VERSION/bin/gu install native-image
-          export PATH=$(pwd)/graalvm-ce-java19-$VERSION/bin:$PATH
-          
-          cd jwebserver
-          ./build-jwebserver.sh
+  runs-on: ubuntu-latest
+  timeout-minutes: 10
+  steps:
+    - uses: actions/checkout@v2
+    - uses: graalvm/setup-graalvm@v1
+      with:
+        version: 'dev'
+        java-version: '17'
+        components: 'native-image'
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        cache: 'maven'
+    - name: Run Java Hello World
+      run: |
+        #
+        # Setup musl toolchain
+        #
+        ./setup-musl.sh
+        cd 1_hello_world
+        ./build.sh
+    - name: Run Java jwebserver
+      run: |
+        cd jwebserver
+        ./build-jwebserver.sh
