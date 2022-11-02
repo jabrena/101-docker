@@ -34,5 +34,5 @@ jobs:
       - name: Run Java jwebserver
         run: |
           cd jwebserver
-          ./build-jwebserver.sh
+          #./build-jwebserver.sh
           ./build-all.sh
