@@ -45,7 +45,13 @@ jobs:
           sleep 5
           #curl http://localhost:8080/jibber/
           curl -X POST http://localhost:8080/actuator/shutdown
+          docker build -f Dockerfiles/Dockerfile.native --build-arg APP_FILE=benchmark-jibber-upx -t jibber-benchmark:native.0.0.1-SNAPSHOT .
+          docker run --rm --name native -p 8080:8080 jibber-benchmark:native.0.0.1-SNAPSHOT
+          sleep 5
+          curl -X POST http://localhost:8080/actuator/shutdown          
           docker build -f Dockerfiles/Dockerfile.native-static-upx --build-arg APP_FILE=benchmark-jibber-upx -t jibber-benchmark:native.0.0.1-SNAPSHOT .
+          
+          docker images
           docker run --rm --name native -p 8080:8080 jibber-benchmark:native.0.0.1-SNAPSHOT
           sleep 5
           curl -X POST http://localhost:8080/actuator/shutdown

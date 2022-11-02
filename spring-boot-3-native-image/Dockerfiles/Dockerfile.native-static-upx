@@ -1,5 +1,7 @@
 FROM scratch
 
+MKDIR /tmp
+
 ARG APP_FILE
 EXPOSE 8080
 
