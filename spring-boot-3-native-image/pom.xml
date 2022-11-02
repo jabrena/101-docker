@@ -45,6 +45,46 @@
 		<base-image-tag>graalce</base-image-tag>
 	</properties>
 
+
+	<profiles>
+		<!-- Default profile : This builds a JVM based container that runs the JAR of the application -->
+		<profile>
+			<id>jvm</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+				<property>
+					<name>!native</name>
+				</property>
+			</activation>
+			<properties>
+				<docker-file>Dockerfile.graalce</docker-file>
+				<!-- Turn off the GraalVM Native Image plugin -->
+				<skip-native-build>true</skip-native-build>
+			</properties>
+		</profile>
+		<!-- This builds a native image,. It turns off packaging as a docker image
+		 		Activate this profile as follows:
+		 		mvn package -Dnative
+		 -->
+		<profile>
+			<id>native</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+				<property>
+					<name>native</name>
+				</property>
+			</activation>
+			<properties>
+				<repackage.classifier>exec</repackage.classifier>
+				<!-- Turn on the GraalVM Native Image plugin -->
+				<skip-native-build>false</skip-native-build>
+				<!-- Switch of building a docker container -->
+				<dockerfile.skip>true</dockerfile.skip>
+			</properties>
+		</profile>
+
+	</profiles>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -79,7 +119,7 @@
 				<artifactId>native-maven-plugin</artifactId>
 				<configuration>
 					<buildArgs>
-						<buildArg>--static</buildArg>
+						<buildArg>--static --libc=musl</buildArg>
 					</buildArgs>
 				</configuration>
 			</plugin>
@@ -103,7 +143,6 @@
 				We won't sue this when building a native executable due to the possibility that you are building on something
 				that isn't linux. The resultant executable wouldn't work in side the linux container
 			-->
-			<!--
 			<plugin>
 				<groupId>com.spotify</groupId>
 				<artifactId>dockerfile-maven-plugin</artifactId>
@@ -126,7 +165,6 @@
 					<dockerfile>Dockerfiles/${docker-file}</dockerfile>
 				</configuration>
 			</plugin>
-			-->
 		</plugins>
 	</build>
 

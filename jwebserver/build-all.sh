@@ -12,4 +12,5 @@ echo "Generated Executables"
 ls -lh jwebserver*
 
 echo "Generated Docker Container Images"
-docker images jwebserver
+#docker images jwebserver
+docker images

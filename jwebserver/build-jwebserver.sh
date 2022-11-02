@@ -1,9 +1,18 @@
 #!/bin/sh
 
+TOOLCHAIN_DIR=`pwd`/../x86_64-linux-musl-native
+CC=${TOOLCHAIN_DIR}/bin/gcc
+PATH=${TOOLCHAIN_DIR}/bin:${PATH}
+
+set -x
+
+java -version
+
 # Original script from: https://github.com/shaunsmith/tiny-java-containers/tree/main/jwebserver
 
 #native-image --static --libc=musl -m jdk.httpserver -o jwebserver.static
-native-image --native-image-info --verbose --static -m jdk.httpserver -o jwebserver.static
+#native-image --native-image-info --verbose --static -m jdk.httpserver -o jwebserver.static
+native-image --static -m jdk.httpserver -o jwebserver.static
 
 docker build . -f Dockerfile.static -t jwebserver:static
 rm -f jwebserver.upx

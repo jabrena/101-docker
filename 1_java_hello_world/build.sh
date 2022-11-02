@@ -17,4 +17,4 @@ rm *.txt
 upx --lzma --best hello -o hello.upx
 
 # Package the compressed executable in a simple scratch container image
-docker build . -t hello:upx
+docker build -f Dockerfile.upx -t hello:upx .
