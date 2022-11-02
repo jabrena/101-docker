@@ -22,11 +22,14 @@ jobs:
           cache: 'maven'
       - name: Run Java Hello World
         run: |
+          cd 1_hello_world
           #
           # Setup musl toolchain
           #
           ./setup-musl.sh
-          cd 1_hello_world
+          #
+          # Hello World
+          #
           ./build.sh
       - name: Run Java jwebserver
         run: |
