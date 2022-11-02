@@ -22,7 +22,7 @@ jobs:
           cache: 'maven'
       - name: Run Java Hello World
         run: |
-          cd 1_hello_world
+          cd 1_java_hello_world
           #
           # Setup musl toolchain
           #
