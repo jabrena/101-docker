@@ -119,7 +119,7 @@
 				<artifactId>native-maven-plugin</artifactId>
 				<configuration>
 					<buildArgs>
-						<buildArg>--static</buildArg>
+						<buildArg>--static --libc=musl</buildArg>
 					</buildArgs>
 				</configuration>
 			</plugin>

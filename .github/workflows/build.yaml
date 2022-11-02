@@ -27,6 +27,24 @@ jobs:
           # Setup musl toolchain
           #
           ./setup-musl.sh
+      - name: Run 'spring-boot-3-native-image'
+        run: |
+          cd spring-boot-3-native-image
+          
+          TOOLCHAIN_DIR=`pwd`/../x86_64-linux-musl-native
+          CC=${TOOLCHAIN_DIR}/bin/gcc
+          PATH=${TOOLCHAIN_DIR}/bin:${PATH}
+          
+          set -x   
+          
+          mvn --no-transfer-progress native:compile -Pnative package
+          echo "Generated Executables"
+          upx --lzma --best ./target/benchmark-jibber -o ./target/benchmark-jibber-upx
+          ls -lh ./target/benchmark-jibber ./target/benchmark-jibber-upx
+          time ./target/benchmark-jibber-upx &
+          sleep 5
+          #curl http://localhost:8080/jibber/
+          curl -X POST http://localhost:8080/actuator/shutdown
       - name: Run Java Hello World
         run: |
           cd 1_java_hello_world
