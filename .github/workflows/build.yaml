@@ -27,11 +27,12 @@ jobs:
           # Setup musl toolchain
           #
           ./setup-musl.sh
-      - name: Run Java jwebserver
-        run: |
-          cd jwebserver
-          ./build-all.sh
       - name: Run Java Hello World
         run: |
           cd 1_java_hello_world
           ./build.sh
+      - name: Run Java jwebserver
+        run: |
+          cd jwebserver
+          ./build-jwebserver.sh
+          ./build-all.sh
