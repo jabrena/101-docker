@@ -1,6 +1,6 @@
 FROM busybox AS build-env
 RUN ls /tmp
-RUN mkdir /tmp
+#RUN mkdir /tmp
 RUN touch /tmp/empty.txt
 
 FROM scratch
