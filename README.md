@@ -37,3 +37,6 @@ jibber-benchmark   native.0.0.1-SNAPSHOT   9c628401c6e3   6 seconds ago   18.5MB
 - https://graalvm.github.io/native-build-tools/latest/maven-plugin.html
 - https://start.spring.io/
 - https://github.com/wagoodman/dive
+- https://spring.io/guides/gs/spring-boot-docker/
+- https://www.baeldung.com/dockerizing-spring-boot-application
+- https://www.baeldung.com/spring-boot-docker-images

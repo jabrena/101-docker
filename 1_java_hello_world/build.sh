@@ -10,11 +10,11 @@ set -x
 javac Hello.java
 
 # Compile Java bytecodes into a fully statically linked executable
-native-image --static --libc=musl -o hello Hello
+native-image --static --libc=musl -o hello.static Hello
 rm *.txt
 
 # Create a compressed version of the executable
-upx --lzma --best hello -o hello.upx
+upx --lzma --best hello.static -o hello.upx
 
 ldd hello.static
 ldd hello.upx
