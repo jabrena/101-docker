@@ -1,6 +1,8 @@
 # 101-docker
-A lab to explore ideas about how to use Docker concepts applied to poliglot apps
 
+[![CI](https://github.com/jabrena/101-docker/actions/workflows/build.yaml/badge.svg)](https://github.com/jabrena/101-docker/actions/workflows/build.yaml)
+
+A lab to explore ideas about how to use Docker concepts applied to poliglot apps
 
 ## References
 

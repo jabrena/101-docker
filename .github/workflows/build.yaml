@@ -23,48 +23,17 @@ jobs:
           cache: 'maven'
       - name: Run musl setup
         run: |
-          #
-          # Setup musl toolchain
-          #
           ./setup-musl.sh
-      - name: Run 'spring-boot-3-native-image'
-        run: |
-          cd spring-boot-3-native-image
-          
-          TOOLCHAIN_DIR=`pwd`/../x86_64-linux-musl-native
-          CC=${TOOLCHAIN_DIR}/bin/gcc
-          PATH=${TOOLCHAIN_DIR}/bin:${PATH}
-          
-          set -x   
-          
-          mvn --no-transfer-progress native:compile -Pnative package
-          echo "Generated Executables"
-          upx --lzma --best ./target/benchmark-jibber -o ./target/benchmark-jibber-upx
-          ls -lh ./target/benchmark-jibber ./target/benchmark-jibber-upx
-          time ./target/benchmark-jibber-upx &
-          sleep 5
-          #curl http://localhost:8080/jibber/
-          curl -X POST http://localhost:8080/actuator/shutdown
-          docker build -f Dockerfiles/Dockerfile.native --build-arg APP_FILE=benchmark-jibber-upx -t jibber-benchmark:native.0.0.1-SNAPSHOT .
-          docker run --rm --name native -d -p 8080:8080 jibber-benchmark:native.0.0.1-SNAPSHOT
-          sleep 5
-          curl -X POST http://localhost:8080/actuator/shutdown          
-          docker build -f Dockerfiles/Dockerfile.native-static-upx --build-arg APP_FILE=benchmark-jibber-upx -t jibber-benchmark:native.0.0.1-SNAPSHOT .
-          
-          docker images
-          docker run --rm --name native -d -p 8080:8080 jibber-benchmark:native.0.0.1-SNAPSHOT
-          sleep 5
-          curl -X POST http://localhost:8080/actuator/shutdown
-          docker images
-          
-          #wget https://github.com/wagoodman/dive/releases/download/v0.9.2/dive_0.9.2_linux_amd64.deb
-          #sudo apt install ./dive_0.9.2_linux_amd64.deb
       - name: Run Java Hello World
         run: |
           cd 1_java_hello_world
           ./build.sh
       - name: Run Java jwebserver
         run: |
-          cd jwebserver
+          cd 2_java_jwebserver
           #./build-jwebserver.sh
           ./build-all.sh
+      - name: Run Spring-boot
+        run: |
+          cd 3_java_spring_boot
+          ./build-spring-boot.sh

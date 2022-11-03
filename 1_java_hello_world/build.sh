@@ -18,3 +18,6 @@ upx --lzma --best hello -o hello.upx
 
 # Package the compressed executable in a simple scratch container image
 docker build -f Dockerfile.upx -t hello:upx .
+
+echo "Generated Docker Container Images"
+docker images hello
