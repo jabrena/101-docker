@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# If you don`t use Github Actions for GraalVM ...
+
 sudo apt-get update
 sudo apt-get install -y wget gcc libz-dev upx musl-tools
 sudo rm -rf /var/lib/apt/lists/*
