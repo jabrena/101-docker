@@ -138,32 +138,19 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
 					<image>
-						<!-- <name>jibber-benchmark:buildpack.0.0.1-SNAPSHOT</name>
-						<builder>docker.io/paketobuildpacks/builder:base</builder>
-						<runImage>docker.io/paketobuildpacks/run:base-cnb</runImage>
-						-->
 						<buildpacks>
 							<buildpack>gcr.io/paketo-buildpacks/bellsoft-liberica:9.9.0-ea</buildpack>
 							<buildpack>gcr.io/paketo-buildpacks/java-native-image</buildpack>
 						</buildpacks>
-						<!--
 						<env>
-							<BP_NATIVE_IMAGE_BUILD_ARGUMENTS> - - verbose</BP_NATIVE_IMAGE_BUILD_ARGUMENTS>
+							<!--
+							<BP_BINARY_COMPRESSION_METHOD>upx</BP_BINARY_COMPRESSION_METHOD>
+							<BP_NATIVE_IMAGE_BUILD_ARGUMENTS>- -static</BP_NATIVE_IMAGE_BUILD_ARGUMENTS>
 							<BP_NATIVE_IMAGE>false</BP_NATIVE_IMAGE>
+							-->
 						</env>
-						-->
 					</image>
 				</configuration>
-				<executions>
-					<execution>
-						<goals>
-							<goal>repackage</goal>
-						</goals>
-						<configuration>
-							<classifier>exec</classifier>
-						</configuration>
-					</execution>
-				</executions>
 			</plugin>
 			<!--
 				Build a Docker Image - we will use this for packaging our Jar in a docker image.

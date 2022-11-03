@@ -6,7 +6,8 @@ PATH=${TOOLCHAIN_DIR}/bin:${PATH}
 
 set -x
 
-#mvn spring-boot:build-image
+echo "Generated Executables" with buildpacks
+mvn -Pnative spring-boot:build-image
 
 mvn --no-transfer-progress native:compile -Pnative package
 
