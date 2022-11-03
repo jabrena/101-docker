@@ -23,4 +23,8 @@ docker build -f Dockerfiles/Dockerfile.native-static-upx --build-arg APP_FILE=be
 docker run --rm --name native -d -p 8080:8080 jibber-benchmark:native.0.0.1-SNAPSHOT
 sleep 5
 curl -X POST http://localhost:8080/actuator/shutdown
-docker images
+
+echo "Generated Docker Container Images"
+docker images jwebserver
+docker images hello
+docker images jibber-benchmark
