@@ -16,8 +16,16 @@ rm *.txt
 # Create a compressed version of the executable
 upx --lzma --best hello -o hello.upx
 
-# Package the compressed executable in a simple scratch container image
-docker build -f Dockerfile.upx -t hello:upx .
+ldd hello.static
+ldd hello.upx
+ls -lh hello.static hello.upx
+
+docker build . -f Dockerfile.static -t hello:static
+docker build . -f Dockerfile.upx -t hello:upx
+
+echo "Run images as final E2E tests"
+time docker run hello:static
+time docker run hello:upx
 
 echo "Generated Docker Container Images"
-docker images hello
+docker images hello --format '{{.Size}}\t{{.Repository}}\t{{.Tag}}\t{{.ID}}' | sed 's/ //' | sort -h -r | column -t
