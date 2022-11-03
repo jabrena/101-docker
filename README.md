@@ -36,5 +36,4 @@ A lab to explore ideas about how to use Docker concepts applied to poliglot apps
 - https://start.spring.io/
 - https://github.com/wagoodman/dive
 - https://spring.io/guides/gs/spring-boot-docker/
-- https://www.baeldung.com/dockerizing-spring-boot-application
-- https://www.baeldung.com/spring-boot-docker-images
+- https://docs.spring.io/spring-boot/docs/current/maven-plugin/reference/htmlsingle/
