@@ -6,8 +6,6 @@ PATH=${TOOLCHAIN_DIR}/bin:${PATH}
 
 set -x
 
-docker build . -f Dockerfiles/Dockerfile.native-static-upx2 --build-arg APP_FILE=benchmark-jibber-upx -t jibber-benchmark:native-upx.0.0.1-SNAPSHOT
-
 mvn --no-transfer-progress native:compile -Pnative package
 
 echo "Generated Executables"
