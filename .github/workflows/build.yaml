@@ -27,11 +27,11 @@ jobs:
       - name: Run Java Hello World
         run: |
           cd 1_java_hello_world
-          #./build-hello-world.sh
+          ./build-hello-world.sh
       - name: Run Java jwebserver
         run: |
           cd 2_java_jwebserver
-          #./build-all.sh
+          ./build-all.sh
       - name: Run Spring-boot
         run: |
           cd 3_java_spring_boot
