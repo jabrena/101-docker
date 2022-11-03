@@ -1,4 +1,5 @@
 FROM busybox AS build-env
+RUN ls /tmp
 RUN mkdir /tmp
 RUN touch /tmp/empty.txt
 
@@ -8,5 +9,5 @@ ARG APP_FILE
 EXPOSE 8080
 
 COPY --from=build-env /tmp /tmp
-COPY target/${APP_FILE} app
+#COPY target/${APP_FILE} app
 ENTRYPOINT ["/app"]
