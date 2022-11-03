@@ -6,7 +6,7 @@ PATH=${TOOLCHAIN_DIR}/bin:${PATH}
 
 set -x
 
-mvn spring-boot:build-image
+#mvn spring-boot:build-image
 
 mvn --no-transfer-progress native:compile -Pnative package
 

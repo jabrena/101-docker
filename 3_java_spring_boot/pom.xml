@@ -23,31 +23,37 @@
 		<maven.compiler.source>17</maven.compiler.source>
 		<maven.compiler.target>17</maven.compiler.target>
 		<java.version>17</java.version>
-		<dockerfile-maven-version>1.4.13</dockerfile-maven-version>
 		<!--
+		<dockerfile-maven-version>1.4.13</dockerfile-maven-version>
+
 			Using this property you can define other flags you would like to be passed to the native image
 			invocation from the command line as follows: -Dnative-image-extra-flags="..."
-		-->
+
 		<native-image-extra-flags></native-image-extra-flags>
-		<!-- The output name for the binary executable built by GraalVM Native Image -->
+		-->
+		<!-- The output name for the binary executable built by GraalVM Native Image
 		<binary-name>jibber</binary-name>
+		-->
 		<!--
 			Docker Repository
-		-->
+
 		<docker-repository>jibber-benchmark</docker-repository>
+		-->
 		<!--
 			Location of the Dockerfile to build the GraalVM JVM Docker Image with
-		-->
+
 		<docker-file>Dockerfiles/Dockerfile.graalce</docker-file>
+		-->
 		<!--
 			How to tag the GraalVM JVM Docker Image
-		-->
+
 		<base-image-tag>graalce</base-image-tag>
+		-->
 	</properties>
 
 
 	<profiles>
-		<!-- Default profile : This builds a JVM based container that runs the JAR of the application -->
+		<!-- Default profile : This builds a JVM based container that runs the JAR of the application
 		<profile>
 			<id>jvm</id>
 			<activation>
@@ -58,14 +64,14 @@
 			</activation>
 			<properties>
 				<docker-file>Dockerfile.graalce</docker-file>
-				<!-- Turn off the GraalVM Native Image plugin -->
+				< ! - - Turn off the GraalVM Native Image plugin - - >
 				<skip-native-build>true</skip-native-build>
 			</properties>
 		</profile>
+		-->
 		<!-- This builds a native image,. It turns off packaging as a docker image
 		 		Activate this profile as follows:
 		 		mvn package -Dnative
-		 -->
 		<profile>
 			<id>native</id>
 			<activation>
@@ -76,13 +82,13 @@
 			</activation>
 			<properties>
 				<repackage.classifier>exec</repackage.classifier>
-				<!-- Turn on the GraalVM Native Image plugin -->
+				< ! - - Turn on the GraalVM Native Image plugin - - >
 				<skip-native-build>false</skip-native-build>
-				<!-- Switch of building a docker container -->
+				< ! - - Switch of building a docker container - - >
 				<dockerfile.skip>true</dockerfile.skip>
 			</properties>
 		</profile>
-
+		 -->
 	</profiles>
 
 	<dependencies>
@@ -119,7 +125,8 @@
 				<artifactId>native-maven-plugin</artifactId>
 				<configuration>
 					<buildArgs>
-						<buildArg>--static --libc=musl</buildArg>
+						<buildArg>--static</buildArg>
+						<buildArg>--libc=musl</buildArg>
 					</buildArgs>
 				</configuration>
 			</plugin>
@@ -131,19 +138,38 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
 					<image>
-						<name>jibber-benchmark:buildpack.0.0.1-SNAPSHOT</name>
+						<!-- <name>jibber-benchmark:buildpack.0.0.1-SNAPSHOT</name>
+						<builder>docker.io/paketobuildpacks/builder:base</builder>
+						<runImage>docker.io/paketobuildpacks/run:base-cnb</runImage>
+						-->
 						<buildpacks>
 							<buildpack>gcr.io/paketo-buildpacks/bellsoft-liberica:9.9.0-ea</buildpack>
 							<buildpack>gcr.io/paketo-buildpacks/java-native-image</buildpack>
 						</buildpacks>
+						<!--
+						<env>
+							<BP_NATIVE_IMAGE_BUILD_ARGUMENTS> - - verbose</BP_NATIVE_IMAGE_BUILD_ARGUMENTS>
+							<BP_NATIVE_IMAGE>false</BP_NATIVE_IMAGE>
+						</env>
+						-->
 					</image>
 				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+						<configuration>
+							<classifier>exec</classifier>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 			<!--
 				Build a Docker Image - we will use this for packaging our Jar in a docker image.
 				We won't sue this when building a native executable due to the possibility that you are building on something
 				that isn't linux. The resultant executable wouldn't work in side the linux container
-			-->
+
 			<plugin>
 				<groupId>com.spotify</groupId>
 				<artifactId>dockerfile-maven-plugin</artifactId>
@@ -166,6 +192,7 @@
 					<dockerfile>Dockerfiles/${docker-file}</dockerfile>
 				</configuration>
 			</plugin>
+			-->
 		</plugins>
 	</build>
 
