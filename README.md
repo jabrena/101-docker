@@ -7,23 +7,21 @@ A lab to explore ideas about how to use Docker concepts applied to poliglot apps
 ## Results
 
 ```
-+ docker images jwebserver
-REPOSITORY   TAG                            IMAGE ID       CREATED         SIZE
-jwebserver   distroless-java-base.jlink     7647c6c548da   5 minutes ago   113MB
-jwebserver   scratch.static-upx             9ef8631ac1ac   6 minutes ago   4.44MB
-jwebserver   alpine.static                  29b05d6c1c78   6 minutes ago   23.4MB
-jwebserver   distroless-static.static       b9ad95976251   6 minutes ago   20.2MB
-jwebserver   scratch.static                 65d858443abe   6 minutes ago   17.9MB
-jwebserver   distroless-base.mostly         ca90a11fa78e   7 minutes ago   38.6MB
-jwebserver   distroless-java-base.dynamic   51524b4ddfe4   9 minutes ago   57.6MB
++ docker images hello --format {{.Size}}\t{{.Repository}}\t{{.Tag}}\t{{.ID}}
+13.2MB  hello  static  69fc221e8119
+3.18MB  hello  upx     2e6c3626ae69
 
-+ docker images hello
-REPOSITORY   TAG       IMAGE ID       CREATED          SIZE
-hello        upx       a8ce73f90f1e   10 minutes ago   3.17MB
+113MB   jwebserver  distroless-java-base.jlink    34c52fd2e09b
+57.6MB  jwebserver  distroless-java-base.dynamic  6e862593e584
+38.6MB  jwebserver  distroless-base.mostly        d8d6d7b2ff77
+23.4MB  jwebserver  alpine.static                 9b4c18475524
+20.2MB  jwebserver  distroless-static.static      a046cd8c426e
+17.9MB  jwebserver  scratch.static                625f43abdc28
+4.44MB  jwebserver  scratch.static-upx            111c6113edae
 
-+ docker images jibber-benchmark
-REPOSITORY         TAG                     IMAGE ID       CREATED         SIZE
-jibber-benchmark   native.0.0.1-SNAPSHOT   9c628401c6e3   6 seconds ago   18.5MB
++ docker images jibber-benchmark --format {{.Size}}\t{{.Repository}}\t{{.Tag}}\t{{.ID}}
+38.8MB  jibber-benchmark  native.0.0.1-SNAPSHOT      8c1c5d19afde
+18.5MB  jibber-benchmark  native-upx.0.0.1-SNAPSHOT  b8493ddc8146
 ```
 
 ## References
