@@ -16,7 +16,7 @@ ldd ./target/benchmark-jibber-upx
 ls -lh ./target/benchmark-jibber ./target/benchmark-jibber-upx
 
 docker build . -f Dockerfiles/Dockerfile.native --build-arg APP_FILE=benchmark-jibber-upx -t jibber-benchmark:native.0.0.1-SNAPSHOT
-docker build . -f Dockerfiles/Dockerfile.native-static-upx2 --build-arg APP_FILE=benchmark-jibber-upx -t jibber-benchmark:native-upx.0.0.1-SNAPSHOT
+docker build . -f Dockerfiles/Dockerfile.native-static-upx --build-arg APP_FILE=benchmark-jibber-upx -t jibber-benchmark:native-upx.0.0.1-SNAPSHOT
 
 echo "Run images as final E2E tests"
 docker run --rm --name native -d -p 8080:8080 jibber-benchmark:native-upx.0.0.1-SNAPSHOT
