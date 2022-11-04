@@ -23,7 +23,7 @@ docker run --rm --name native -d -p 8080:8080 jibber-benchmark:native-upx.0.0.1-
 sleep 5
 curl -X POST http://localhost:8080/actuator/shutdown
 
-echo "Generated Docker Container Images"
+echo "Generated Docker Container Images Summary"
 docker images jwebserver --format '{{.Size}}\t{{.Repository}}\t{{.Tag}}\t{{.ID}}' | sed 's/ //' | sort -h -r | column -t
 docker images hello --format '{{.Size}}\t{{.Repository}}\t{{.Tag}}\t{{.ID}}' | sed 's/ //' | sort -h -r | column -t
 docker images jibber-benchmark --format '{{.Size}}\t{{.Repository}}\t{{.Tag}}\t{{.ID}}' | sed 's/ //' | sort -h -r | column -t
