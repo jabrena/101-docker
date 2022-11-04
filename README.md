@@ -37,3 +37,4 @@ A lab to explore ideas about how to use Docker concepts applied to poliglot apps
 - https://github.com/wagoodman/dive
 - https://spring.io/guides/gs/spring-boot-docker/
 - https://docs.spring.io/spring-boot/docs/current/maven-plugin/reference/htmlsingle/
+- https://console.cloud.google.com/gcr/images/paketo-buildpacks/GLOBAL/bellsoft-liberica
