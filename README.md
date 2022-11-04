@@ -30,6 +30,10 @@ docker images jibber-benchmark --format '{{.Size}}\t{{.Repository}}\t{{.Tag}}\t{
 18.4MB  jibber-benchmark  native-upx.0.0.1-SNAPSHOT         8801957da44e
 ```
 
+## Architecture to explore
+
+![](./docs/spring-microservice-diagram.png)
+
 ## References
 
 - https://github.com/graalvm/graalvm-demos
@@ -44,6 +48,8 @@ docker images jibber-benchmark --format '{{.Size}}\t{{.Repository}}\t{{.Tag}}\t{
 - https://spring.io/guides/gs/spring-boot-docker/
 - https://docs.spring.io/spring-boot/docs/current/maven-plugin/reference/htmlsingle/
 - https://console.cloud.google.com/gcr/images/paketo-buildpacks/GLOBAL/bellsoft-liberica
+- https://spring.io/microservices
+- http://more.musl.cc/
 
 ## Talks
 

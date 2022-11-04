@@ -37,6 +37,11 @@ jobs:
           cd 3_java_spring_boot
           ./build-spring-boot.sh
 
+      - name: Run Node.js
+        run: |
+          cd 4_nodejs_express
+          ./build-nodejs.sh
+
       # Register Docker images
       - name: Log into GitHub Container Registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login https://ghcr.io -u ${{ github.actor }} --password-stdin
@@ -45,7 +50,7 @@ jobs:
       #- name: Build Docker Image
       #  run: mvn clean spring-boot:build-image
 
-      - name: Push image to GitHub Container Registry
-        run: |
-          IMAGE_ID=ghcr.io/${{ github.repository_owner }}/jibber-benchmark:native-upx.0.0.1-SNAPSHOT
-          docker push $IMAGE_ID
+      #- name: Push image to GitHub Container Registry
+      #  run: |
+      #    IMAGE_ID=ghcr.io/${{ github.repository_owner }}/jibber-benchmark:native-upx.0.0.1-SNAPSHOT
+      #    docker push $IMAGE_ID
