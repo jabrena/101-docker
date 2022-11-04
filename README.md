@@ -32,6 +32,11 @@ docker images jibber-benchmark --format '{{.Size}}\t{{.Repository}}\t{{.Tag}}\t{
 docker images nodejs --format '{{.Size}}\t{{.Repository}}\t{{.Tag}}\t{{.ID}}' | sed 's/ //' | sort -h -r | column -t
 
 1.02GB  nodejs  express.0.0.1-SNAPSHOT  34c0262ce4bc
+
+docker images py --format '{{.Size}}\t{{.Repository}}\t{{.Tag}}\t{{.ID}}' | sed 's/ //' | sort -h -r | column -t
+
+197MB   py  django.0.0.1-SNAPSHOT  f59562f79e27
+57.4MB  py  http_server            5f9684211f52
 ```
 
 ## Architecture to explore
