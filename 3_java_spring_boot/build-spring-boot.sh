@@ -6,30 +6,8 @@ PATH=${TOOLCHAIN_DIR}/bin:${PATH}
 
 set -x
 
-mvn --no-transfer-progress native:compile -Pnative package
-
-echo "Generated Executables"
-upx --lzma --best ./target/benchmark-jibber -o ./target/benchmark-jibber-upx
-
-ldd ./target/benchmark-jibber
-ldd ./target/benchmark-jibber-upx
-ls -lh ./target/benchmark-jibber ./target/benchmark-jibber-upx
-
-docker build . -f Dockerfiles/Dockerfile.native --build-arg APP_FILE=benchmark-jibber-upx -t jibber-benchmark:native.0.0.1-SNAPSHOT
-docker build . -f Dockerfiles/Dockerfile.native-static-upx --build-arg APP_FILE=benchmark-jibber-upx -t jibber-benchmark:native-upx.0.0.1-SNAPSHOT
-
-echo "Run images as final E2E tests"
-docker run --rm --name native -d -p 8080:8080 jibber-benchmark:native-upx.0.0.1-SNAPSHOT
-sleep 5
-curl -X POST http://localhost:8080/actuator/shutdown
-
-echo "Generated Docker Container Images"
-docker images jwebserver --format '{{.Size}}\t{{.Repository}}\t{{.Tag}}\t{{.ID}}' | sed 's/ //' | sort -h -r | column -t
-docker images hello --format '{{.Size}}\t{{.Repository}}\t{{.Tag}}\t{{.ID}}' | sed 's/ //' | sort -h -r | column -t
-docker images jibber-benchmark --format '{{.Size}}\t{{.Repository}}\t{{.Tag}}\t{{.ID}}' | sed 's/ //' | sort -h -r | column -t
-
 echo "Generated Executables" with buildpacks
-mvn -Pnative spring-boot:build-image
+mvn -Pnative spring-boot:build-image -Dspring-boot.build-image.imageName=benchmark-jibber:buildpacks-native.0.0.1-SNAPSHOT
+mvn spring-boot:build-image -Dspring-boot.build-image.imageName=benchmark-jibber:buildpacks-jvm.0.0.1-SNAPSHOT
 
-docker images docker.io/library/benchmark-jibber
-docker images
+docker images benchmark-jibber
