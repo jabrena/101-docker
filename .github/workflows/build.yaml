@@ -36,4 +36,4 @@ jobs:
         run: |
           cd 3_java_spring_boot
           ./build-spring-boot-manual.sh
-          ./build-spring-boot.sh
+          #./build-spring-boot.sh
