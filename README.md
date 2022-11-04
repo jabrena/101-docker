@@ -28,7 +28,15 @@ docker images jibber-benchmark --format '{{.Size}}\t{{.Repository}}\t{{.Tag}}\t{
 91.3MB  jibber-benchmark  buildpacks-native.0.0.1-SNAPSHOT  9e56de567bcf
 38.7MB  jibber-benchmark  native.0.0.1-SNAPSHOT             dba7fc1dc157
 18.4MB  jibber-benchmark  native-upx.0.0.1-SNAPSHOT         8801957da44e
+
+docker images nodejs --format '{{.Size}}\t{{.Repository}}\t{{.Tag}}\t{{.ID}}' | sed 's/ //' | sort -h -r | column -t
+
+1.02GB  nodejs  express.0.0.1-SNAPSHOT  34c0262ce4bc
 ```
+
+## Architecture to explore
+
+![](./docs/spring-microservice-diagram.png)
 
 ## References
 
@@ -44,3 +52,9 @@ docker images jibber-benchmark --format '{{.Size}}\t{{.Repository}}\t{{.Tag}}\t{
 - https://spring.io/guides/gs/spring-boot-docker/
 - https://docs.spring.io/spring-boot/docs/current/maven-plugin/reference/htmlsingle/
 - https://console.cloud.google.com/gcr/images/paketo-buildpacks/GLOBAL/bellsoft-liberica
+- https://spring.io/microservices
+- http://more.musl.cc/
+
+## Talks
+
+- https://github.com/jabrena/crossing-the-chasm-native-images
