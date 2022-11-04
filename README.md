@@ -2,9 +2,7 @@
 
 [![CI](https://github.com/jabrena/101-docker/actions/workflows/build.yaml/badge.svg)](https://github.com/jabrena/101-docker/actions/workflows/build.yaml)
 
-A lab to explore ideas about how to use Docker concepts applied to poliglot apps
-
-## Architecture to explore with GraalVM Native features
+## A microservice architecture to evaluate using Spring Boot applications & GraalVM native capabilities
 
 https://spring.io/microservices
 
