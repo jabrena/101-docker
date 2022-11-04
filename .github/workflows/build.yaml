@@ -27,20 +27,25 @@ jobs:
       - name: Run Java Hello World
         run: |
           cd 1_java_hello_world
-          ./build-hello-world.sh
+          #./build-hello-world.sh
       - name: Run Java jwebserver
         run: |
           cd 2_java_jwebserver
-          ./build-all.sh
+          #./build-all.sh
       - name: Run Spring-boot
         run: |
           cd 3_java_spring_boot
-          ./build-spring-boot.sh
+          #./build-spring-boot.sh
 
       - name: Run Node.js
         run: |
           cd 4_nodejs_express
-          ./build-nodejs.sh
+          #./build-nodejs.sh
+
+      - name: Run Python http.server
+        run: |
+          cd 5_python_http_server
+          ./build-python.sh
 
       # Register Docker images
       - name: Log into GitHub Container Registry
