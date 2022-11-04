@@ -21,26 +21,38 @@ jobs:
           components: 'native-image'
           github-token: ${{ secrets.GITHUB_TOKEN }}
           cache: 'maven'
+
       - name: Run musl setup
         run: |
           ./setup-musl.sh
+
       - name: Run Java Hello World
         run: |
           cd 1_java_hello_world
-          ./build-hello-world.sh
+      #    ./build-hello-world.sh
+
       - name: Run Java jwebserver
         run: |
           cd 2_java_jwebserver
-          ./build-all.sh
+      #    ./build-all.sh
+
       - name: Run Spring-boot
         run: |
           cd 3_java_spring_boot
           ./build-spring-boot.sh
 
-      - name: Run Node.js
+      - name: Run Node.js with Express
         run: |
           cd 4_nodejs_express
-          ./build-nodejs.sh
+      #    #./build-nodejs.sh
+
+      - name: Run Python http.server & django
+        run: |
+          cd 5_python_http_server
+      #    ./build-python.sh
+      #    cd ..
+      #    cd 5_1_python_django
+      #    ./build-python.sh
 
       # Register Docker images
       - name: Log into GitHub Container Registry
