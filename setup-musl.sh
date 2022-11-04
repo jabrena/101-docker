@@ -1,6 +1,6 @@
 #!/bin/sh
 
-MUSL_VERSION=11
+MUSL_VERSION=10
 ZLIB_VERSION=1.2.13
 TOOLCHAIN_DIR=`pwd`/x86_64-linux-musl-native
 
