@@ -7,9 +7,12 @@ A lab to explore ideas about how to use Docker concepts applied to poliglot apps
 ## Results
 
 ```
-+ docker images hello --format {{.Size}}\t{{.Repository}}\t{{.Tag}}\t{{.ID}}
+docker images hello --format '{{.Size}}\t{{.Repository}}\t{{.Tag}}\t{{.ID}}' | sed 's/ //' | sort -h -r | column -t
+
 13.2MB  hello  static  69fc221e8119
 3.18MB  hello  upx     2e6c3626ae69
+
+docker images jwebserver --format '{{.Size}}\t{{.Repository}}\t{{.Tag}}\t{{.ID}}' | sed 's/ //' | sort -h -r | column -t
 
 113MB   jwebserver  distroless-java-base.jlink    34c52fd2e09b
 57.6MB  jwebserver  distroless-java-base.dynamic  6e862593e584
@@ -19,9 +22,12 @@ A lab to explore ideas about how to use Docker concepts applied to poliglot apps
 17.9MB  jwebserver  scratch.static                625f43abdc28
 4.44MB  jwebserver  scratch.static-upx            111c6113edae
 
-+ docker images jibber-benchmark --format {{.Size}}\t{{.Repository}}\t{{.Tag}}\t{{.ID}}
-38.8MB  jibber-benchmark  native.0.0.1-SNAPSHOT      8c1c5d19afde
-18.5MB  jibber-benchmark  native-upx.0.0.1-SNAPSHOT  b8493ddc8146
+docker images jibber-benchmark --format '{{.Size}}\t{{.Repository}}\t{{.Tag}}\t{{.ID}}' | sed 's/ //' | sort -h -r | column -t
+
+279MB   jibber-benchmark  buildpacks-jvm.0.0.1-SNAPSHOT     483a47cdfe58
+91.3MB  jibber-benchmark  buildpacks-native.0.0.1-SNAPSHOT  9e56de567bcf
+38.7MB  jibber-benchmark  native.0.0.1-SNAPSHOT             dba7fc1dc157
+18.4MB  jibber-benchmark  native-upx.0.0.1-SNAPSHOT         8801957da44e
 ```
 
 ## References
@@ -37,3 +43,4 @@ A lab to explore ideas about how to use Docker concepts applied to poliglot apps
 - https://github.com/wagoodman/dive
 - https://spring.io/guides/gs/spring-boot-docker/
 - https://docs.spring.io/spring-boot/docs/current/maven-plugin/reference/htmlsingle/
+- https://console.cloud.google.com/gcr/images/paketo-buildpacks/GLOBAL/bellsoft-liberica

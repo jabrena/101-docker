@@ -1,10 +1,12 @@
 #!/bin/sh
 
+MUSL_VERSION=10.2.1
 ZLIB_VERSION=1.2.13
 TOOLCHAIN_DIR=`pwd`/x86_64-linux-musl-native
 
-# Download musl
-wget -q http://more.musl.cc/10/x86_64-linux-musl/x86_64-linux-musl-native.tgz
+# Download musl http://more.musl.cc
+echo "musl version=${MUSL_VERSION}"
+wget -q http://more.musl.cc/${MUSL_VERSION}/x86_64-linux-musl/x86_64-linux-musl-native.tgz
 tar -xzf x86_64-linux-musl-native.tgz
 rm x86_64-linux-musl-native.tgz
 
