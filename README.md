@@ -4,7 +4,20 @@
 
 A lab to explore ideas about how to use Docker concepts applied to poliglot apps
 
-## Results
+## Architecture to explore with GraalVM Native features
+
+https://spring.io/microservices
+
+> Microservices are a modern approach to software whereby application code
+is delivered in small, manageable pieces, independent of others.
+
+![](./docs/spring-microservice-diagram.png)
+
+- [ ] HTTP Rest communications (A <- B)
+- [ ] Database transactions
+- [ ] Event driven communications (A -> Event Store)
+
+## Docker size results
 
 ```
 docker images hello --format '{{.Size}}\t{{.Repository}}\t{{.Tag}}\t{{.ID}}' | sed 's/ //' | sort -h -r | column -t
@@ -38,10 +51,6 @@ docker images py --format '{{.Size}}\t{{.Repository}}\t{{.Tag}}\t{{.ID}}' | sed 
 197MB   py  django.0.0.1-SNAPSHOT  f59562f79e27
 57.4MB  py  http_server            5f9684211f52
 ```
-
-## Architecture to explore
-
-![](./docs/spring-microservice-diagram.png)
 
 ## References
 
