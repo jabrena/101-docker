@@ -149,13 +149,6 @@
 									<buildpack>gcr.io/paketo-buildpacks/bellsoft-liberica:9.10</buildpack>
 									<buildpack>gcr.io/paketo-buildpacks/java-native-image</buildpack>
 								</buildpacks>
-								<env>
-									<!--
-                                    <BP_BINARY_COMPRESSION_METHOD>upx</BP_BINARY_COMPRESSION_METHOD>
-                                    <BP_NATIVE_IMAGE_BUILD_ARGUMENTS>- -static</BP_NATIVE_IMAGE_BUILD_ARGUMENTS>
-                                    <BP_NATIVE_IMAGE>false</BP_NATIVE_IMAGE>
-                                    -->
-								</env>
 							</image>
 						</configuration>
 					</execution>
@@ -170,9 +163,6 @@
 								<buildpacks>
 									<!-- EMPTY -->
 								</buildpacks>
-								<env>
-									<!-- EMPTY -->
-								</env>
 							</image>
 						</configuration>
 					</execution>
