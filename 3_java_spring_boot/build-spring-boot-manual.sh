@@ -23,6 +23,10 @@ docker run --rm --name native -d -p 8080:8080 jibber-benchmark:native-upx.0.0.1-
 sleep 5
 curl -X POST http://localhost:8080/actuator/shutdown
 
+echo "Generated Executables with buildpacks"
+mvn -Pnative spring-boot:build-image -Dspring-boot.build-image.imageName=jibber-benchmark:buildpacks-native.0.0.1-SNAPSHOT
+mvn spring-boot:build-image -Dspring-boot.build-image.imageName=jibber-benchmark:buildpacks-jvm.0.0.1-SNAPSHOT
+
 echo "Generated Docker Container Images Summary"
 docker images jwebserver --format '{{.Size}}\t{{.Repository}}\t{{.Tag}}\t{{.ID}}' | sed 's/ //' | sort -h -r | column -t
 docker images hello --format '{{.Size}}\t{{.Repository}}\t{{.Tag}}\t{{.ID}}' | sed 's/ //' | sort -h -r | column -t
