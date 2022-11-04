@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/jabrena/101-docker/actions/workflows/build.yaml/badge.svg)](https://github.com/jabrena/101-docker/actions/workflows/build.yaml)
 
-## A microservice architecture to evaluate using Spring Boot applications & GraalVM native capabilities
+## A microservice architecture to be evaluated with Spring Boot applications & GraalVM native capabilities
 
 https://spring.io/microservices
 
