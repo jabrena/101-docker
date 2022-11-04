@@ -144,7 +144,6 @@
 							<goal>build-image</goal>
 						</goals>
 						<configuration>
-							<imageName>benchmark-jibber:buildpacks-native.0.0.1-SNAPSHOT</imageName>
 							<image>
 								<buildpacks>
 									<buildpack>gcr.io/paketo-buildpacks/bellsoft-liberica:9.9.0-ea</buildpack>
@@ -167,7 +166,6 @@
 							<goal>build-image</goal>
 						</goals>
 						<configuration>
-							<imageName>benchmark-jibber:buildpacks-jvm.0.0.1-SNAPSHOT</imageName>
 							<image>
 								<buildpacks>
 									<!-- EMPTY -->
