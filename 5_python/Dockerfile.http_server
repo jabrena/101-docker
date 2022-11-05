@@ -1,6 +1,7 @@
 FROM alpine:latest
 
 EXPOSE 8080
+
 WORKDIR /serve
 COPY index.html /serve/index.html
 
