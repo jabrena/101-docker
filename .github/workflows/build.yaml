@@ -39,7 +39,7 @@ jobs:
       - name: Run Spring-boot
         run: |
           cd 3_java_spring_boot
-      #    ./build-spring-boot.sh
+          ./build-spring-boot.sh
 
       - name: Run Node.js with Express
         run: |
@@ -49,7 +49,7 @@ jobs:
       - name: Run Python http.server & django
         run: |
           cd 5_python
-          ./build-python.sh
+      #    ./build-python.sh
 
       # Register Docker images
       - name: Log into GitHub Container Registry
