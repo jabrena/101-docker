@@ -49,7 +49,7 @@ jobs:
           docker images ghcr.io/jabrena/use-case1-a
           docker images
             
-          IMAGE_ID=ghcr.io/jabrena/use-case1-a:buildpacks-native.0.0.1-SNAPSHOT
+          IMAGE_ID=ghcr.io/jabrena/use-case1-a:buildpacks-jvm.0.0.1-SNAPSHOT
           docker push $IMAGE_ID
           
           #IMAGE_ID=ghcr.io/use_case1_b:buildpacks-jvm.0.0.1-SNAPSHOT
