@@ -34,7 +34,7 @@ jobs:
       - name: Run usecase1_rest_comms_b
         run: |
           cd usecase1_rest_comms_b
-          ./build-spring-boot.sh          
+          #./build-spring-boot.sh          
 
       # Register Docker images
       - name: Log into GitHub Container Registry
@@ -47,10 +47,10 @@ jobs:
       - name: Push image to GitHub Container Registry
         run: |
           #docker images use_case1_a
-          #docker images use_case1_b
-          docker images
+          docker images ghcr.io/jabrena/101-docker
+          docker images 
             
-          IMAGE_ID=ghcr.io/jabrena/101-docker:use-case1-a-buildpacks-jvm.0.0.1-SNAPSHO
+          IMAGE_ID=ghcr.io/jabrena/101-docker:use-case1-a-buildpacks-jvm.0.0.1-SNAPSHOT
           docker push $IMAGE_ID
           
           #IMAGE_ID=ghcr.io/use_case1_b:buildpacks-jvm.0.0.1-SNAPSHOT
