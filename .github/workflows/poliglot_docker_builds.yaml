@@ -1,4 +1,4 @@
-name: CI
+name: Poliglot Docker Builds
 
 on:
   push:
@@ -9,7 +9,7 @@ permissions:
   contents: read
 jobs:
   run:
-    name: Run Docker Examples
+    name: Build
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
@@ -39,7 +39,7 @@ jobs:
       - name: Run Spring-boot
         run: |
           cd 3_java_spring_boot
-          ./build-spring-boot.sh
+      #    ./build-spring-boot.sh
 
       - name: Run Node.js with Express
         run: |
