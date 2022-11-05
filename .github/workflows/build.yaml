@@ -50,9 +50,6 @@ jobs:
         run: |
           cd 5_python
           ./build-python.sh
-          #cd ..
-          #cd 5_1_python_django
-          #./build-python.sh
 
       # Register Docker images
       - name: Log into GitHub Container Registry
