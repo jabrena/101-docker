@@ -46,10 +46,10 @@ jobs:
 
       - name: Push image to GitHub Container Registry
         run: |
-          docker images ghcr.io/jabrena/101-docker
+          docker images ghcr.io/jabrena/use-case1-a
           docker images
             
-          IMAGE_ID=ghcr.io/jabrena/101-docker:use-case1-a-buildpacks-jvm.0.0.1-SNAPSHOT
+          IMAGE_ID=ghcr.io/jabrena/use-case1-a:buildpacks-native.0.0.1-SNAPSHOT
           docker push $IMAGE_ID
           
           #IMAGE_ID=ghcr.io/use_case1_b:buildpacks-jvm.0.0.1-SNAPSHOT
