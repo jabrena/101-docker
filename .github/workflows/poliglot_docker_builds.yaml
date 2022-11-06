@@ -39,12 +39,12 @@ jobs:
       - name: Run Spring-boot
         run: |
           cd 3_java_spring_boot
-          ./build-spring-boot.sh
+          #./build-spring-boot.sh
 
       - name: Run Node.js with Express
         run: |
           cd 4_nodejs_express
-          #./build-nodejs.sh
+          ./build-nodejs.sh
 
       - name: Run Python http.server & django
         run: |
