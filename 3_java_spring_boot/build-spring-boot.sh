@@ -13,7 +13,6 @@ upx --lzma --best ./target/benchmark-jibber -o ./target/benchmark-jibber-upx
 
 ldd ./target/benchmark-jibber
 ldd ./target/benchmark-jibber-upx
-ls -lh ./target/benchmark-jibber ./target/benchmark-jibber-upx
 
 docker build . -f Dockerfiles/Dockerfile.native --build-arg APP_FILE=benchmark-jibber-upx -t jibber-benchmark:native.0.0.1-SNAPSHOT
 docker build . -f Dockerfiles/Dockerfile.native-static-upx --build-arg APP_FILE=benchmark-jibber-upx -t jibber-benchmark:native-upx.0.0.1-SNAPSHOT
