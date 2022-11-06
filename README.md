@@ -37,6 +37,7 @@ docker images jibber-benchmark --format '{{.Size}}\t{{.Repository}}\t{{.Tag}}\t{
 
 279MB   jibber-benchmark  buildpacks-jvm.0.0.1-SNAPSHOT     483a47cdfe58
 91.3MB  jibber-benchmark  buildpacks-native.0.0.1-SNAPSHOT  9e56de567bcf
+41.3MB  jibber-benchmark  buildpacks-native-static-upx.0.0.1-SNAPSHOT  9a30a86e62e7
 38.7MB  jibber-benchmark  native.0.0.1-SNAPSHOT             dba7fc1dc157
 18.4MB  jibber-benchmark  native-upx.0.0.1-SNAPSHOT         8801957da44e
 
