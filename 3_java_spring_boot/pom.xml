@@ -103,7 +103,8 @@
 									<BPE_APPEND_JAVA_TOOL_OPTIONS>-Djava.security.egd=file:/dev/./urandom</BPE_APPEND_JAVA_TOOL_OPTIONS>
 									-->
 									<BP_BINARY_COMPRESSION_METHOD>upx</BP_BINARY_COMPRESSION_METHOD>
-									<BP_NATIVE_IMAGE_BUILD_ARGUMENTS>--static --libc=musl</BP_NATIVE_IMAGE_BUILD_ARGUMENTS>
+									<BP_NATIVE_IMAGE_BUILD_ARGUMENTS>--static </BP_NATIVE_IMAGE_BUILD_ARGUMENTS>
+									<!-- - - libc=musl -->
 									<pullPolicy>IF_NOT_PRESENT</pullPolicy>
 								</env>
 							</image>
