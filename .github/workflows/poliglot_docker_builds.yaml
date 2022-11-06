@@ -44,7 +44,7 @@ jobs:
       - name: Run Node.js with Express
         run: |
           cd 4_nodejs_express
-         ./build-nodejs.sh
+          ./build-nodejs.sh
 
       - name: Run Python http.server & django
         run: |
