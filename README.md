@@ -64,6 +64,7 @@ docker images py --format '{{.Size}}\t{{.Repository}}\t{{.Tag}}\t{{.ID}}' | sed 
 - https://spring.io/guides/gs/spring-boot-docker/
 - https://docs.spring.io/spring-boot/docs/current/maven-plugin/reference/htmlsingle/
 - https://console.cloud.google.com/gcr/images/paketo-buildpacks/GLOBAL/bellsoft-liberica
+- https://github.com/paketo-buildpacks/bellsoft-liberica
 - https://spring.io/microservices
 - http://more.musl.cc/
 

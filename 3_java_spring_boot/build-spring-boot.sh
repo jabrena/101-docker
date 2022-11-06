@@ -6,6 +6,10 @@ PATH=${TOOLCHAIN_DIR}/bin:${PATH}
 
 set -x
 
+echo "Generated Executables with buildpacks"
+mvn -Pnative spring-boot:build-image
+mvn spring-boot:build-image
+
 mvn --no-transfer-progress native:compile -Pnative package
 
 echo "Generated Executables"
@@ -21,10 +25,6 @@ echo "Run images as final E2E tests"
 docker run --rm --name native -d -p 8080:8080 jibber-benchmark:native-upx.0.0.1-SNAPSHOT
 sleep 5
 curl -X POST http://localhost:8080/actuator/shutdown
-
-echo "Generated Executables with buildpacks"
-mvn -Pnative spring-boot:build-image
-mvn spring-boot:build-image
 
 echo "Generated Docker Container Images Summary"
 docker images jwebserver --format '{{.Size}}\t{{.Repository}}\t{{.Tag}}\t{{.ID}}' | sed 's/ //' | sort -h -r | column -t

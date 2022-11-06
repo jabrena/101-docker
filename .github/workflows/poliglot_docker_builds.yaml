@@ -29,12 +29,12 @@ jobs:
       - name: Run Java Hello World
         run: |
           cd 1_java_hello_world
-          ./build-hello-world.sh
+          #./build-hello-world.sh
 
       - name: Run Java jwebserver
         run: |
           cd 2_java_jwebserver
-          ./build-all.sh
+          #./build-all.sh
 
       - name: Run Spring-boot
         run: |
@@ -44,9 +44,9 @@ jobs:
       - name: Run Node.js with Express
         run: |
           cd 4_nodejs_express
-          ./build-nodejs.sh
+          #./build-nodejs.sh
 
       - name: Run Python http.server & django
         run: |
           cd 5_python
-          ./build-python.sh
+          #./build-python.sh
