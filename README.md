@@ -43,7 +43,7 @@ docker images jibber-benchmark --format '{{.Size}}\t{{.Repository}}\t{{.Tag}}\t{
 
 docker images nodejs --format '{{.Size}}\t{{.Repository}}\t{{.Tag}}\t{{.ID}}' | sed 's/ //' | sort -h -r | column -t
 
-1.02GB  nodejs  express.0.0.1-SNAPSHOT  34c0262ce4bc
+196MB   nodejs  express.0.0.1-SNAPSHOT  34c0262ce4bc
 
 docker images py --format '{{.Size}}\t{{.Repository}}\t{{.Tag}}\t{{.ID}}' | sed 's/ //' | sort -h -r | column -t
 
@@ -66,6 +66,7 @@ docker images py --format '{{.Size}}\t{{.Repository}}\t{{.Tag}}\t{{.ID}}' | sed 
 - https://docs.spring.io/spring-boot/docs/current/maven-plugin/reference/htmlsingle/
 - https://console.cloud.google.com/gcr/images/paketo-buildpacks/GLOBAL/bellsoft-liberica
 - https://github.com/paketo-buildpacks/bellsoft-liberica
+- https://github.com/paketo-buildpacks/java-native-image
 - https://spring.io/microservices
 - http://more.musl.cc/
 
