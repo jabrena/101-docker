@@ -4,7 +4,9 @@ on:
   push:
     branches: [main]
   pull_request:
-    branches: [main]
+    paths:
+      - 'poliglot_docker_builds/**'
+      - '.github/workflows/poliglot_docker_builds.yml'
 permissions:
   contents: read
 jobs:

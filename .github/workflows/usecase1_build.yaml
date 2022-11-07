@@ -4,7 +4,10 @@ on:
   push:
     branches: [main]
   pull_request:
-    branches: [main]
+    paths:
+      - 'usecase1_rest_comms_a/**'
+      - 'usecase1_rest_comms_b/**'
+      - '.github/workflows/usecase1_build.yml'
 permissions:
   contents: read
 jobs:
@@ -13,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: graalvm/setup-graalvm@v1
         with:
           version: 'dev'
