@@ -45,6 +45,7 @@ is delivered in small, manageable pieces, independent of others.
 - https://spring.io/microservices
 - http://more.musl.cc/
 - https://docs.docker.com/compose/
+- https://www.docker.com/blog/docker-wasm-technical-preview/
 
 ## Previous talks
 
