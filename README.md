@@ -1,6 +1,7 @@
 # 101-docker
 
-[![CI](https://github.com/jabrena/101-docker/actions/workflows/build.yaml/badge.svg)](https://github.com/jabrena/101-docker/actions/workflows/build.yaml)
+[![Poliglot Docker Builds](https://github.com/jabrena/101-docker/actions/workflows/poliglot_docker_builds.yaml/badge.svg)](https://github.com/jabrena/101-docker/actions/workflows/poliglot_docker_builds.yaml)
+[![Usecase 1](https://github.com/jabrena/101-docker/actions/workflows/usecase1_build.yaml/badge.svg)](https://github.com/jabrena/101-docker/actions/workflows/usecase1_build.yaml)
 
 ## A microservice architecture to be evaluated with Spring Boot applications & GraalVM native capabilities
 
@@ -11,7 +12,7 @@ is delivered in small, manageable pieces, independent of others.
 
 ![](./docs/spring-microservice-diagram.png)
 
-- [ ] HTTP Rest communications (A <- B)
+- [x] HTTP Rest communications (A <- B)
 - [ ] Database transactions
 - [ ] Event driven communications (A -> Event Store)
 
