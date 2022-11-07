@@ -36,7 +36,7 @@ jobs:
       - name: Run usecase1_rest_comms_b
         run: |
           cd usecase1/usecase1_rest_comms_b
-          #./build-spring-boot.sh          
+          ./build-spring-boot.sh          
 
       # Register Docker images
       - name: Log into GitHub Container Registry
