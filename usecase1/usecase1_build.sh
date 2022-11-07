@@ -12,3 +12,4 @@ sleep 25
 curl http://localhost:8081/
 curl http://localhost:8080/
 docker-compose down
+docker stats
