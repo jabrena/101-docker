@@ -37,12 +37,13 @@ docker images jibber-benchmark --format '{{.Size}}\t{{.Repository}}\t{{.Tag}}\t{
 
 279MB   jibber-benchmark  buildpacks-jvm.0.0.1-SNAPSHOT     483a47cdfe58
 91.3MB  jibber-benchmark  buildpacks-native.0.0.1-SNAPSHOT  9e56de567bcf
+41.3MB  jibber-benchmark  buildpacks-native-static-upx.0.0.1-SNAPSHOT  9a30a86e62e7
 38.7MB  jibber-benchmark  native.0.0.1-SNAPSHOT             dba7fc1dc157
 18.4MB  jibber-benchmark  native-upx.0.0.1-SNAPSHOT         8801957da44e
 
 docker images nodejs --format '{{.Size}}\t{{.Repository}}\t{{.Tag}}\t{{.ID}}' | sed 's/ //' | sort -h -r | column -t
 
-1.02GB  nodejs  express.0.0.1-SNAPSHOT  34c0262ce4bc
+196MB   nodejs  express.0.0.1-SNAPSHOT  34c0262ce4bc
 
 docker images py --format '{{.Size}}\t{{.Repository}}\t{{.Tag}}\t{{.ID}}' | sed 's/ //' | sort -h -r | column -t
 
@@ -64,6 +65,8 @@ docker images py --format '{{.Size}}\t{{.Repository}}\t{{.Tag}}\t{{.ID}}' | sed 
 - https://spring.io/guides/gs/spring-boot-docker/
 - https://docs.spring.io/spring-boot/docs/current/maven-plugin/reference/htmlsingle/
 - https://console.cloud.google.com/gcr/images/paketo-buildpacks/GLOBAL/bellsoft-liberica
+- https://github.com/paketo-buildpacks/bellsoft-liberica
+- https://github.com/paketo-buildpacks/java-native-image
 - https://spring.io/microservices
 - http://more.musl.cc/
 

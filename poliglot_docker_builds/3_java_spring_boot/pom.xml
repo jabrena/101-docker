@@ -98,6 +98,15 @@
 									<buildpack>gcr.io/paketo-buildpacks/bellsoft-liberica:9.10</buildpack>
 									<buildpack>gcr.io/paketo-buildpacks/java-native-image</buildpack>
 								</buildpacks>
+								<env>
+									<!--
+									<BPE_APPEND_JAVA_TOOL_OPTIONS>-Djava.security.egd=file:/dev/./urandom</BPE_APPEND_JAVA_TOOL_OPTIONS>
+									-->
+									<BP_BINARY_COMPRESSION_METHOD>upx</BP_BINARY_COMPRESSION_METHOD>
+									<BP_NATIVE_IMAGE_BUILD_ARGUMENTS>--static </BP_NATIVE_IMAGE_BUILD_ARGUMENTS>
+									<!-- - - libc=musl -->
+									<pullPolicy>IF_NOT_PRESENT</pullPolicy>
+								</env>
 							</image>
 						</configuration>
 					</plugin>

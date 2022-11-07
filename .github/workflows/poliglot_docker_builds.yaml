@@ -4,7 +4,9 @@ on:
   push:
     branches: [main]
   pull_request:
-    branches: [main]
+    paths:
+      - 'poliglot_docker_builds/**'
+      - '.github/workflows/poliglot_docker_builds.yml'
 permissions:
   contents: read
 jobs:
@@ -13,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: graalvm/setup-graalvm@v1
         with:
           version: 'dev'
@@ -28,38 +30,25 @@ jobs:
 
       - name: Run Java Hello World
         run: |
-          cd 1_java_hello_world
-      #    ./build-hello-world.sh
+          cd poliglot_docker_builds/1_java_hello_world
+          ./build-hello-world.sh
 
       - name: Run Java jwebserver
         run: |
-          cd 2_java_jwebserver
-      #    ./build-all.sh
+          cd poliglot_docker_builds/2_java_jwebserver
+          ./build-all.sh
 
       - name: Run Spring-boot
         run: |
-          cd 3_java_spring_boot
-      #    ./build-spring-boot.sh
+          cd poliglot_docker_builds/3_java_spring_boot
+          ./build-spring-boot.sh
 
       - name: Run Node.js with Express
         run: |
-          cd 4_nodejs_express
-      #   ./build-nodejs.sh
+          cd poliglot_docker_builds/4_nodejs_express
+          ./build-nodejs.sh
 
       - name: Run Python http.server & django
         run: |
-          cd 5_python
-      #    ./build-python.sh
-
-      # Register Docker images
-      - name: Log into GitHub Container Registry
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login https://ghcr.io -u ${{ github.actor }} --password-stdin
-
-      # In previous scripts, the images are built
-      #- name: Build Docker Image
-      #  run: mvn clean spring-boot:build-image
-
-      #- name: Push image to GitHub Container Registry
-      #  run: |
-      #    IMAGE_ID=ghcr.io/${{ github.repository_owner }}/jibber-benchmark:native-upx.0.0.1-SNAPSHOT
-      #    docker push $IMAGE_ID
+          cd poliglot_docker_builds/5_python
+          ./build-python.sh

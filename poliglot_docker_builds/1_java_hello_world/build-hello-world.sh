@@ -1,6 +1,6 @@
 #!/bin/sh
 
-TOOLCHAIN_DIR=`pwd`/../x86_64-linux-musl-native
+TOOLCHAIN_DIR=`pwd`/../../x86_64-linux-musl-native
 CC=${TOOLCHAIN_DIR}/bin/gcc
 PATH=${TOOLCHAIN_DIR}/bin:${PATH}
 
@@ -11,15 +11,15 @@ javac Hello.java
 
 # Compile Java bytecodes into a fully statically linked executable
 native-image --static --libc=musl -o hello.static Hello
-rm *.txt
+#rm *.txt
 
 # Create a compressed version of the executable
 upx --lzma --best hello.static -o hello.upx
 
 ldd hello.static
 ldd hello.upx
-ls -lh hello.static hello.upx
 
+echo "Create docker images"
 docker build . -f Dockerfile.static -t hello:static
 docker build . -f Dockerfile.upx -t hello:upx
 
