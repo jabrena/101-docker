@@ -33,20 +33,20 @@ jobs:
 
       - name: Run Java jwebserver
         run: |
-          cd 2_java_jwebserver
-          #./build-all.sh
+          cd poliglot_docker_builds/2_java_jwebserver
+          ./build-all.sh
 
       - name: Run Spring-boot
         run: |
-          cd 3_java_spring_boot
-          #./build-spring-boot.sh
+          cd poliglot_docker_builds/3_java_spring_boot
+          ./build-spring-boot.sh
 
       - name: Run Node.js with Express
         run: |
-          cd 4_nodejs_express
-          #./build-nodejs.sh
+          cd poliglot_docker_builds/4_nodejs_express
+          ./build-nodejs.sh
 
       - name: Run Python http.server & django
         run: |
-          cd 5_python
-          #./build-python.sh
+          cd poliglot_docker_builds/5_python
+          ./build-python.sh

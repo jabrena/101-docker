@@ -43,14 +43,14 @@ jobs:
       # In previous scripts, the images are built
       #- name: Build Docker Image
       #  run: mvn clean spring-boot:build-image
-
-      - name: Push image to GitHub Container Registry
-        run: |
-          docker images ghcr.io/jabrena/use-case1-a
-          docker images
+        
+      #- name: Push image to GitHub Container Registry
+          #  run: |
+          #docker images ghcr.io/jabrena/use-case1-a
+          #docker images
             
-          IMAGE_ID=ghcr.io/jabrena/use-case1-a:buildpacks-jvm.0.0.1-SNAPSHOT
-          docker push $IMAGE_ID
+          #IMAGE_ID=ghcr.io/jabrena/use-case1-a:buildpacks-jvm.0.0.1-SNAPSHOT
+          #docker push $IMAGE_ID
           
           #IMAGE_ID=ghcr.io/use_case1_b:buildpacks-jvm.0.0.1-SNAPSHOT
           #docker push $IMAGE_ID
