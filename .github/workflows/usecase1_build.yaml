@@ -5,8 +5,7 @@ on:
     branches: [main]
   pull_request:
     paths:
-      - 'usecase1_rest_comms_a/**'
-      - 'usecase1_rest_comms_b/**'
+      - 'usecase1/**'
       - '.github/workflows/usecase1_build.yml'
 permissions:
   contents: read
@@ -31,13 +30,13 @@ jobs:
 
       - name: Run usecase1_rest_comms_a
         run: |
-          cd usecase1_rest_comms_a
+          cd usecase1/usecase1_rest_comms_a
           ./build-spring-boot.sh
 
       - name: Run usecase1_rest_comms_b
         run: |
-          cd usecase1_rest_comms_b
-          #./build-spring-boot.sh          
+          cd usecase1/usecase1_rest_comms_b
+          ./build-spring-boot.sh          
 
       # Register Docker images
       - name: Log into GitHub Container Registry
