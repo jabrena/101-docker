@@ -3,6 +3,16 @@
 [![Poliglot Docker Builds](https://github.com/jabrena/101-docker/actions/workflows/poliglot_docker_builds.yaml/badge.svg)](https://github.com/jabrena/101-docker/actions/workflows/poliglot_docker_builds.yaml)
 [![Usecase 1](https://github.com/jabrena/101-docker/actions/workflows/usecase1_build.yaml/badge.svg)](https://github.com/jabrena/101-docker/actions/workflows/usecase1_build.yaml)
 
+## Motivation
+ 
+Understand the `JVM` & Non JVM ecosystem comparing:
+
+- Container application running with the JVM support
+- Container application running with GraalVM native support
+- Container application running with WASM support
+
+And reviewing the scenarios in terms of `CPU` & `Memory` for a financial point of view in the middle term.
+
 ## A microservice architecture to be evaluated with Spring Boot applications & GraalVM native capabilities
 
 https://spring.io/microservices
@@ -34,7 +44,8 @@ is delivered in small, manageable pieces, independent of others.
 - https://github.com/paketo-buildpacks/java-native-image
 - https://spring.io/microservices
 - http://more.musl.cc/
+- https://docs.docker.com/compose/
 
-## Talks
+## Previous talks
 
 - https://github.com/jabrena/crossing-the-chasm-native-images
