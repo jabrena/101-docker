@@ -94,11 +94,12 @@
 						<configuration>
 							<imageName>jibber-benchmark:buildpacks-native.0.0.1-SNAPSHOT</imageName>
 							<image>
-								<!--
-								<builder>paketobuildpacks/builder:full</builder>
-								-->
+								<builder>paketobuildpacks/builder:base</builder>
 								<buildpacks>
+									<!--
 									<buildpack>gcr.io/paketo-buildpacks/bellsoft-liberica:9.10</buildpack>
+									-->
+									<buildpack>ghcr.io/fagiani/buildpacks/fagiani_apt:0.2.4</buildpack>
 									<buildpack>gcr.io/paketo-buildpacks/java-native-image</buildpack>
 								</buildpacks>
 								<env>
