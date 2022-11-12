@@ -41,6 +41,11 @@ jobs:
       - name: Run Spring-boot
         run: |
           cd poliglot_docker_builds/3_java_spring_boot
+          #./build-spring-boot.sh
+
+      - name: Run Spring-boot dashaun
+        run: |
+          cd poliglot_docker_builds/3_1_java_spring_boot_m1
           ./build-spring-boot.sh
 
       - name: Run Node.js with Express
