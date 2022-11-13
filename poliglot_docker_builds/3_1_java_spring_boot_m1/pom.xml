@@ -38,54 +38,27 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>process-aot</id>
-						<goals><goal>process-aot</goal></goals>
-					</execution>
-					<execution>
-						<id>build-image</id>
-						<phase>install</phase>
-						<goals><goal>build-image</goal></goals>
-						<configuration>
-							<image>
-								<!-- <name>${docker.registry}/${project.artifactId}-native${archSuffix}:${project.version}</name> -->
-								<builder>dashaun/java-native-builder-multiarch:7.37.0</builder>
-								<env>
-									<BP_NATIVE_IMAGE>true</BP_NATIVE_IMAGE>
-									<BP_JVM_VERSION>${java.version}</BP_JVM_VERSION>
-									<BP_NATIVE_IMAGE_BUILD_ARGUMENTS>-J-Xmx6000m</BP_NATIVE_IMAGE_BUILD_ARGUMENTS>
-								</env>
-								<pullPolicy>IF_NOT_PRESENT</pullPolicy>
-							</image>
-							<excludes>
-								<exclude>
-									<groupId>org.projectlombok</groupId>
-									<artifactId>lombok</artifactId>
-								</exclude>
-							</excludes>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.graalvm.buildtools</groupId>
-				<artifactId>native-maven-plugin</artifactId>
-				<version>0.9.17</version>
 				<configuration>
-					<classesDirectory>${project.build.outputDirectory}</classesDirectory>
-					<metadataRepository>
-						<enabled>true</enabled>
-					</metadataRepository>
+					<image>
+						<!--
+						<builder>dashaun/java-native-builder-arm64:7.37.0</builder>
+						-->
+						<builder>dashaun/java-native-builder-multiarch:7.37.0</builder>
+						<!--
+						<buildpacks>
+							<buildpack>gcr.io/paketo-buildpacks/bellsoft-liberica:9.10</buildpack>
+							<buildpack>gcr.io/paketo-buildpacks/java-native-image</buildpack>
+						</buildpacks>
+						-->
+						<env>
+							<BP_NATIVE_IMAGE>true</BP_NATIVE_IMAGE>
+							<BP_JVM_VERSION>17</BP_JVM_VERSION>
+							<BP_NATIVE_IMAGE_BUILD_ARGUMENTS>-J-Xmx6000m --static</BP_NATIVE_IMAGE_BUILD_ARGUMENTS>
+							<!-- <BP_BINARY_COMPRESSION_METHOD>upx</BP_BINARY_COMPRESSION_METHOD> -->
+							<pullPolicy>IF_NOT_PRESENT</pullPolicy>
+						</env>
+					</image>
 				</configuration>
-				<executions>
-					<execution>
-						<id>add-reachability-metadata</id>
-						<goals>
-							<goal>add-reachability-metadata</goal>
-						</goals>
-					</execution>
-				</executions>
 			</plugin>
 		</plugins>
 	</build>
