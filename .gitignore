@@ -1,3 +1,7 @@
 .idea
 target
 .DS_Store
+*.log
+*.csv
+usecase1/html-jvm/
+usecase1/html-native/
