@@ -5,3 +5,4 @@ target
 *.csv
 usecase1/html-jvm/
 usecase1/html-native/
+node_modules
