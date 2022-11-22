@@ -25,11 +25,6 @@ public class MyRestController {
 
     @GetMapping("/")
     public ResponseEntity<String> getData() {
-        try {
-            Thread.sleep(3_000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
         return ResponseEntity.ok().body("Hello World");
     }
 
