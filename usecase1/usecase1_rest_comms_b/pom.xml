@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.0.0-RC1</version>
+		<version>3.0.0-RC2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
@@ -77,7 +77,7 @@
 						<groupId>org.springframework.boot</groupId>
 						<artifactId>spring-boot-maven-plugin</artifactId>
 						<configuration>
-							<imageName>ghcr.io/use_case1_b:buildpacks-jvm.0.0.1-SNAPSHOT</imageName>
+							<imageName>ghcr.io/jabrena/use-case1-b:buildpacks-jvm.0.0.1-SNAPSHOT</imageName>
 							<image>
 								<buildpacks>
 									<!-- EMPTY -->
@@ -106,12 +106,25 @@
 						<groupId>org.springframework.boot</groupId>
 						<artifactId>spring-boot-maven-plugin</artifactId>
 						<configuration>
-							<imageName>ghcr.io/use_case1_b:buildpacks-native.0.0.1-SNAPSHOT</imageName>
+							<imageName>ghcr.io/jabrena/use-case1-b:buildpacks-native.0.0.1-SNAPSHOT</imageName>
 							<image>
-								<buildpacks>
-									<buildpack>gcr.io/paketo-buildpacks/bellsoft-liberica:9.10</buildpack>
-									<buildpack>gcr.io/paketo-buildpacks/java-native-image</buildpack>
-								</buildpacks>
+								<!--
+                                <builder>dashaun/java-native-builder-arm64:7.37.0</builder>
+                                -->
+								<builder>dashaun/java-native-builder-multiarch:7.37.0</builder>
+								<!--
+                                <buildpacks>
+                                    <buildpack>gcr.io/paketo-buildpacks/bellsoft-liberica:9.10</buildpack>
+                                    <buildpack>gcr.io/paketo-buildpacks/java-native-image</buildpack>
+                                </buildpacks>
+                                -->
+								<env>
+									<BP_NATIVE_IMAGE>true</BP_NATIVE_IMAGE>
+									<BP_JVM_VERSION>17</BP_JVM_VERSION>
+									<BP_NATIVE_IMAGE_BUILD_ARGUMENTS>-J-Xmx6000m --static</BP_NATIVE_IMAGE_BUILD_ARGUMENTS>
+									<!-- <BP_BINARY_COMPRESSION_METHOD>upx</BP_BINARY_COMPRESSION_METHOD> -->
+									<pullPolicy>IF_NOT_PRESENT</pullPolicy>
+								</env>
 							</image>
 						</configuration>
 					</plugin>

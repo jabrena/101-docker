@@ -28,15 +28,10 @@ jobs:
         run: |
           ./setup-musl.sh
 
-      - name: Run usecase1_rest_comms_a
+      - name: Run usecase1
         run: |
-          cd usecase1/usecase1_rest_comms_a
-          ./build-spring-boot.sh
-
-      - name: Run usecase1_rest_comms_b
-        run: |
-          cd usecase1/usecase1_rest_comms_b
-          ./build-spring-boot.sh          
+          cd usecase1
+          ./usecase1_build.sh        
 
       # Register Docker images
       - name: Log into GitHub Container Registry
