@@ -32,6 +32,7 @@ docker images nodejs --format '{{.Size}}\t{{.Repository}}\t{{.Tag}}\t{{.ID}}' | 
 
 docker images py --format '{{.Size}}\t{{.Repository}}\t{{.Tag}}\t{{.ID}}' | sed 's/ //' | sort -h -r | column -t
 
-167MB   py  django.0.0.1-SNAPSHOT  f59562f79e27
-57.4MB  py  http_server            5f9684211f52
+160MB  py  django.0.0.1-SNAPSHOT       35b461ac58da
+127MB  py  fastapi.0.0.1-SNAPSHOT      5078a507dee7
+54MB   py  http_server.0.0.1-SNAPSHOT  b8e2da3d64e1
 ```
