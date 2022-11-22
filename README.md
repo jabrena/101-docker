@@ -26,6 +26,13 @@ is delivered in small, manageable pieces, independent of others.
 - [ ] Database transactions
 - [ ] Event driven communications (A -> Event Store)
 
+## Issues detected
+
+- [ ] `musl` support is not implemented with buildpacks
+- [ ] `upx` support is not possible in OSX
+- [ ] [`--static` has different behaviour (size) between OSX & Ubuntu](https://github.com/jabrena/101-docker/issues/57#issuecomment-1323910704)
+- [ ] [Segfault](https://github.com/jabrena/101-docker/issues/57#issuecomment-1323893624) raised when native application A call endpoint B using http
+
 ## References
 
 - https://github.com/graalvm/graalvm-demos
