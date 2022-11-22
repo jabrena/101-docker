@@ -6,7 +6,8 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
 WORKDIR /code
-RUN echo "Django==4.1.3" > requirements.txt
+COPY requirements.txt /code/requirements.txt
+
 RUN pip install -r requirements.txt
 RUN django-admin startproject mysite
 
