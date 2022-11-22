@@ -31,7 +31,8 @@ jobs:
       - name: Run usecase1
         run: |
           cd usecase1
-          ./usecase1_build.sh        
+          ./usecase1_build.sh  
+          ./usecase1_run.sh  
 
       # Register Docker images
       - name: Log into GitHub Container Registry
