@@ -78,7 +78,7 @@
 						<groupId>org.springframework.boot</groupId>
 						<artifactId>spring-boot-maven-plugin</artifactId>
 						<configuration>
-							<imageName>ghcr.io/jabrena/use-case1-a:buildpacks-jvm.0.0.1-SNAPSHOT</imageName>
+							<imageName>ghcr.io/jabrena/usecase1-a:buildpacks-jvm.0.0.1-SNAPSHOT</imageName>
 							<image>
 								<buildpacks>
 									<!-- EMPTY -->
@@ -107,7 +107,7 @@
 						<groupId>org.springframework.boot</groupId>
 						<artifactId>spring-boot-maven-plugin</artifactId>
 						<configuration>
-							<imageName>ghcr.io/jabrena/use-case1-a:buildpacks-native.0.0.1-SNAPSHOT</imageName>
+							<imageName>ghcr.io/jabrena/usecase1-a:buildpacks-native.0.0.1-SNAPSHOT</imageName>
 							<image>
 								<!--
                                 <builder>dashaun/java-native-builder-arm64:7.37.0</builder>

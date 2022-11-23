@@ -1,0 +1,13 @@
+server:
+  port: 9191
+
+spring:
+  application:
+    name: api-cloud-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: usecase1a
+          uri: http://usecase1a:8080/
+          predicates:
+            - Path=/jvm/**

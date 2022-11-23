@@ -1,7 +1,15 @@
 version: '3'
 services:
+  usecase1ag:
+    image: ghcr.io/jabrena/usecase1-api-gateway:buildpacks-jvm.0.0.1-SNAPSHOT
+    ports:
+      - 9191:9191
+    depends_on:
+      - "usecase1a"
+    networks:
+      - usecase1
   usecase1a:
-    image: ghcr.io/jabrena/use-case1-a:buildpacks-jvm.0.0.1-SNAPSHOT
+    image: ghcr.io/jabrena/usecase1-a:buildpacks-jvm.0.0.1-SNAPSHOT
     ports:
       - 8080:8080
     environment:
@@ -11,7 +19,7 @@ services:
     networks:
       - usecase1
   usecase1b:
-    image: ghcr.io/jabrena/use-case1-b:buildpacks-jvm.0.0.1-SNAPSHOT
+    image: ghcr.io/jabrena/usecase1-b:buildpacks-jvm.0.0.1-SNAPSHOT
     ports:
       - 8081:8081
     networks:
