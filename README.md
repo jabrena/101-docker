@@ -28,10 +28,12 @@ is delivered in small, manageable pieces, independent of others.
 
 ## Issues detected
 
+Some notes from the tests using Spring Boot 3 native features.
+
 - [ ] `musl` support is not implemented with buildpacks
 - [ ] `upx` support is not possible in OSX
-- [ ] [`--static` has different behaviour (size) between OSX & Ubuntu](https://github.com/jabrena/101-docker/issues/57#issuecomment-1323910704)
-- [ ] [Segfault](https://github.com/jabrena/101-docker/issues/57#issuecomment-1323893624) raised when native application A call endpoint B using http
+- [ ] [Buildpacks has a different behaviour (size) between OSX & Ubuntu in terms of sizes of native apps](https://github.com/jabrena/101-docker/issues/57#issuecomment-1323910704)
+- [ ] [`--static` is not available for OSX](https://github.com/jabrena/101-docker/issues/57#issuecomment-1323893624) raised when native application A call endpoint B using http
 
 ## References
 
@@ -53,6 +55,7 @@ is delivered in small, manageable pieces, independent of others.
 - http://more.musl.cc/
 - https://docs.docker.com/compose/
 - https://www.docker.com/blog/docker-wasm-technical-preview/
+- https://github.com/actions/upload-artifact
 
 ## Previous talks
 
