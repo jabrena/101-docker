@@ -14,4 +14,8 @@ CONTAINER ID   NAME                   CPU %     MEM USAGE / LIMIT     MEM %     
 
 ## GraalVM Native
 
-PENDING
+```
+CONTAINER ID   NAME                   CPU %     MEM USAGE / LIMIT    MEM %     NET I/O     BLOCK I/O   PIDS
+3060ff10fa4f   usecase1-usecase1a-1   0.07%     29.6MiB / 7.764GiB   0.37%     766B / 0B   0B / 0B     18
+7a42f3c6902d   usecase1-usecase1b-1   0.05%     21.8MiB / 7.764GiB   0.27%     876B / 0B   0B / 0B     18
+```
