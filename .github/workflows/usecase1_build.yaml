@@ -38,7 +38,7 @@ jobs:
       - name: Upload JMeter Test Results
         uses: actions/upload-artifact@v3
         with:
-          name: html-jvm
+          name: jmeter-html-reports
           path: |
             usecase1/html-jvm
             usecase1/html-native
