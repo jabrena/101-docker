@@ -122,7 +122,8 @@
 								<env>
 									<BP_NATIVE_IMAGE>true</BP_NATIVE_IMAGE>
 									<BP_JVM_VERSION>17</BP_JVM_VERSION>
-									<BP_NATIVE_IMAGE_BUILD_ARGUMENTS>-J-Xmx6000m --static --enable-http</BP_NATIVE_IMAGE_BUILD_ARGUMENTS>
+									<BP_NATIVE_IMAGE_BUILD_ARGUMENTS>-J-Xmx6000m</BP_NATIVE_IMAGE_BUILD_ARGUMENTS>
+									<!-- - -static -->
 									<!-- <BP_BINARY_COMPRESSION_METHOD>upx</BP_BINARY_COMPRESSION_METHOD> -->
 									<pullPolicy>IF_NOT_PRESENT</pullPolicy>
 								</env>
