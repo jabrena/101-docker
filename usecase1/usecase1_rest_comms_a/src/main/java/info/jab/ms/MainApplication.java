@@ -13,7 +13,7 @@ public class MainApplication {
 
 	public static void main(String[] args) {
 		applicationContext = SpringApplication.run(MainApplication.class, args);
-		displayAllBeans();
+		//displayAllBeans();
 	}
 
 	public static void displayAllBeans() {
