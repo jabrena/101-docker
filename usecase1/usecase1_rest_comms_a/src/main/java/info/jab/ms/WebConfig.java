@@ -20,5 +20,4 @@ public class WebConfig {
                 .setReadTimeout(Duration.ofSeconds(5))
                 .build();
     }
-
 }

@@ -1,0 +1,19 @@
+server:
+  port: 9191
+
+spring.cloud.gateway.routes:
+
+  - id: usecase1a
+    uri: http://usecase1a:8080/
+    predicates:
+      - Path=/jvm/
+    filters:
+      - SetPath=/
+
+logging:
+  level:
+    root: INFO
+#    org.springframework.cloud.gateway.route.RouteDefinitionRouteLocator: INFO
+#    org.springframework.cloud.gateway: INFO
+#    org.springframework.cloud.gateway.handler.RoutePredicateHandlerMapping: INFO
+#    org.springframework.web.server.adapter.HttpWebHandlerAdapter: INFO
