@@ -32,7 +32,7 @@ jobs:
         run: |
           cd usecase1
           ./usecase1_build.sh  
-          ./usecase1_run.sh  
+        #./usecase1_run.sh  
           ./usecase1_jmeter.sh 
 
       - name: Upload JMeter Test Results
@@ -41,7 +41,6 @@ jobs:
           name: jmeter-html-reports
           path: |
             usecase1/html-jvm
-            usecase1/html-native
 
       # Register Docker images
       - name: Log into GitHub Container Registry
