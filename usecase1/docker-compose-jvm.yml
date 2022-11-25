@@ -9,6 +9,7 @@ services:
       - USE_CASE_A=http://usecase1a:8084/
       - USE_CASE_AN=http://usecase1an:7084/
     depends_on:
+      - "usecase1a"
       - "usecase1an"
     networks:
       - usecase1
@@ -23,8 +24,6 @@ services:
       - "usecase1b"
     networks:
       - usecase1
-    #profiles:
-    #  - donotstart
   usecase1an:
     image: ghcr.io/jabrena/usecase1-a:buildpacks-native.0.0.1-SNAPSHOT
     ports:
@@ -42,8 +41,6 @@ services:
       - 8081:8081
     networks:
       - usecase1
-    #profiles:
-    #  - donotstart
   usecase1bn:
     image: ghcr.io/jabrena/usecase1-b:buildpacks-native.0.0.1-SNAPSHOT
     ports:
