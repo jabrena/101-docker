@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+  prometheus:
+    image: prom/prometheus
+    extra_hosts: ['host.docker.internal:host-gateway']
+    ports:
+      - "9090:9090"
+    container_name: prometheus
+    restart: unless-stopped
+    volumes:
+      - ./prometheus:/etc/prometheus:ro
+    command:
+      - --enable-feature=exemplar-storage
+      - --config.file=/etc/prometheus/prometheus.yml
+
+  grafana:
+    image: grafana/grafana-oss
+    extra_hosts: ['host.docker.internal:host-gateway']
+    container_name: grafana
+    restart: unless-stopped
+    links:
+      - prometheus:prometheus
+    volumes:
+      - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources:ro
+      - ./grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards:ro
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_SERVER_DOMAIN=localhost
+    ports:
+      - "3000:3000"
+
+# Prometheus: http://localhost:9090/
+# Grafana: http://localhost:3000/
