@@ -3,10 +3,11 @@
 echo "Running docker compose jvm"
 docker-compose -f docker-compose-jvm.yml up -d
 
-sleep 50
-curl http://localhost:9191/jvm/ -w '\n'
-curl http://localhost:8081/ -w '\n'
-curl http://localhost:8080/ -w '\n'
+sleep 70
+curl http://localhost:9192/jvm/ -w '\n'
+curl http://localhost:9192/native/ -w '\n'
+#curl http://localhost:8080/ -w '\n'
+#curl http://localhost:8081/ -w '\n'
 docker-compose -f docker-compose-jvm.yml stop
 
 exit 0

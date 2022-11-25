@@ -28,6 +28,8 @@ mkdir html-jvm
 
 docker-compose -f docker-compose-jvm.yml stop
 
+exit 0
+
 echo "Running docker compose native"
 docker-compose -f docker-compose-native.yml up -d
 sleep 25
