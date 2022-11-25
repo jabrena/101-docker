@@ -12,8 +12,6 @@
         <appender-ref ref="CONSOLE"/>
     </root>
 
-    <!--
     <logger name="org.apache.coyote.http11.Http11InputBuffer" level="DEBUG" />
-    -->
 
 </configuration>

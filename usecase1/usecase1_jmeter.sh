@@ -12,7 +12,7 @@ cd ../../
 
 echo "Running docker compose jvm"
 docker-compose -f docker-compose-jvm.yml up -d
-sleep 50
+sleep 70
 
 #Generate load for JVM
 rm -rf ./result-jvm.csv
@@ -27,21 +27,3 @@ mkdir html-jvm
   -o ./html-jvm
 
 docker-compose -f docker-compose-jvm.yml stop
-
-echo "Running docker compose native"
-docker-compose -f docker-compose-native.yml up -d
-sleep 25
-
-#Generate load for JVM
-rm -rf ./result-native.csv
-rm -rf html-native
-./apache-jmeter-5.5/bin/jmeter -n -t jvm-test1.jmx \
-       -l ./result-native.csv
-
-#Generate report
-rm -rf ./html-native/**
-mkdir html-native
-./apache-jmeter-5.5/bin/jmeter -g ./result-native.csv  \
-  -o ./html-native
-
-docker-compose -f docker-compose-native.yml stop
