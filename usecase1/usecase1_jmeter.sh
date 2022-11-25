@@ -12,7 +12,7 @@ cd ../../
 
 echo "Running docker compose jvm"
 docker-compose -f docker-compose-jvm.yml up -d
-sleep 50
+sleep 70
 
 #Generate load for JVM
 rm -rf ./result-jvm.csv
