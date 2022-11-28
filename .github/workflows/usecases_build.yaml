@@ -27,7 +27,7 @@ jobs:
       - name: Build image & push
         run: |
           cd usecases/demo
-          mvn spring-boot:build-image \
+          mvn -X spring-boot:build-image \
             --batch-mode --no-transfer-progress \
             -Dspring-boot.build-image.publish=true \
             -DCI_REGISTRY=https://index.docker.io/v1/ \
