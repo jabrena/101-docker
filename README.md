@@ -22,9 +22,24 @@ is delivered in small, manageable pieces, independent of others.
 
 ![](./docs/spring-microservice-diagram.png)
 
+### Usecase 1: Interservice communication in microservices
+
 - [x] HTTP Rest communications (A <- B)
 - [ ] Database transactions
+
+### Usecase 2: Observability
+
+- [ ] With Prometheus, Prometheus & Zipkin
+- [ ] With Graphana, Tempo & Loki
+- [ ] With Elastic stack
+
+### Usecase 3: Event Driven
+
 - [ ] Event driven communications (A -> Event Store)
+
+### Usecase 4: Security
+
+- [ ] Security patterns
 
 ## Issues detected
 

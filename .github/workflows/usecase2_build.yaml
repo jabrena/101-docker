@@ -1,0 +1,34 @@
+name: Usecase 2
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    paths:
+      - 'usecase2/**'
+      - '.github/workflows/usecase2_build.yml'
+permissions:
+  contents: read
+jobs:
+  run:
+    name: Build
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v3
+      - uses: graalvm/setup-graalvm@v1
+        with:
+          version: 'dev'
+          java-version: '17'
+          components: 'native-image'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          cache: 'maven'
+
+      - name: Run musl setup
+        run: |
+          ./setup-musl.sh
+
+      - name: Run usecase2
+        run: |
+          cd usecase2/usecase2_path1
+          ./build-spring-boot.sh  
