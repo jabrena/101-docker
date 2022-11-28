@@ -33,4 +33,4 @@ jobs:
             -Dspring-boot.build-image.imageName="jabrena/demo-ms:0.1.0" \
             -DCI_REGISTRY=https://index.docker.io/v1 \
             -DCI_REGISTRY_USER=${{ secrets.DOCKERHUB_USERNAME }} \
-            -DCI_REGISTRY_PASSWORD=${{ secrets.DOCKERHUB_TOKEN }}
+            -DCI_REGISTRY_PASSWORD=${{ secrets.DOCKERHUB_PASSWORD }}
