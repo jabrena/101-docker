@@ -1,6 +1,15 @@
 version: '3'
 
 services:
+  example1:
+    image: docker.io/library/jibber-benchmark:buildpacks-jvm.0.0.1-SNAPSHOT
+    ports:
+      - 8080:8080
+    depends_on:
+      - "prometheus"
+      - "grafana"
+    networks:
+      - usecase2
   prometheus:
     image: prom/prometheus
     extra_hosts: ['host.docker.internal:host-gateway']
@@ -9,11 +18,12 @@ services:
     container_name: prometheus
     restart: unless-stopped
     volumes:
-      - ./prometheus:/etc/prometheus:ro
+      - ./monitoring/prometheus:/etc/prometheus:ro
     command:
       - --enable-feature=exemplar-storage
       - --config.file=/etc/prometheus/prometheus.yml
-
+    networks:
+      - usecase2
   grafana:
     image: grafana/grafana-oss
     extra_hosts: ['host.docker.internal:host-gateway']
@@ -22,13 +32,17 @@ services:
     links:
       - prometheus:prometheus
     volumes:
-      - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources:ro
-      - ./grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards:ro
+      - ./monitoring/grafana/provisioning/datasources:/etc/grafana/provisioning/datasources:ro
+      - ./monitoring/grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards:ro
     environment:
       - GF_SECURITY_ADMIN_PASSWORD=admin
       - GF_SERVER_DOMAIN=localhost
     ports:
       - "3000:3000"
+    networks:
+      - usecase2
+networks:
+  usecase2:
 
 # Prometheus: http://localhost:9090/
 # Grafana: http://localhost:3000/
