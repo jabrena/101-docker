@@ -24,11 +24,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           cache: 'maven'
 
-      - name: Run musl setup
-        run: |
-          ./setup-musl.sh
-
-      - name: Run usecase2
+      - name: Build image
         run: |
           cd usecases/demo
           ./build-spring-boot.sh  
@@ -48,5 +44,6 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
+            context: .
             push: true
             tags: jabrena/jibber-benchmark:latest
