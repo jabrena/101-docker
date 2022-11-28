@@ -57,7 +57,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<imageName>jabrena/jibber-benchmark:buildpacks-jvm.0.0.1-SNAPSHOT</imageName>
+					<!-- <imageName>jabrena/jibber-benchmark:buildpacks-jvm.0.0.1-SNAPSHOT</imageName> -->
 					<image>
 						<buildpacks>
 							<!-- EMPTY -->
