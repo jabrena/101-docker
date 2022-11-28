@@ -30,9 +30,9 @@ jobs:
           cd usecases/demo
           mvn spring-boot:build-image \
             -Dspring-boot.build-image.publish=true \
-            -DCI_REGISTRY=https://index.docker.io/v1/ \
-            -DCI_REGISTRY_USER=${{ secrets.DOCKERHUB_USERNAME }} \
-            -DCI_REGISTRY_PASSWORD=${{ secrets.DOCKERHUB_PASSWORD }}
+            -Dspring-boot.build-image.docker.builderRegistry.url=https://index.docker.io/v1/ \
+            -Dspring-boot.build-image.docker.builderRegistry.token=${{ secrets.DOCKERHUB_TOKEN }} \
+            -Dspring-boot.build-image.docker.builderRegistry.user=${{ secrets.DOCKERHUB_USERNAME }}
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
