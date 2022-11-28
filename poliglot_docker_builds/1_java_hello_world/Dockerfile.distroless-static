@@ -1,0 +1,3 @@
+FROM gcr.io/distroless/static-debian11
+COPY hello.static /
+ENTRYPOINT ["/hello.static"]
