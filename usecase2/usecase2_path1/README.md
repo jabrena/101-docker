@@ -5,7 +5,7 @@
 👉 Start up the observability stack (we use Prometheus and Grafana) and wait for it to start. 
 You have to navigate to the monitoring folder first and then run docker compose.
 ```
-$ docker compose up
+docker compose up
 ```
 * To access Prometheus go to http://localhost:9090/
 * To access Grafana go to http://localhost:3000/
@@ -25,3 +25,9 @@ You should see log statements similar to these:
 ```
 
 👉 Go to [Grafana](http://localhost:3000/), go to dashboards, and click on the `Spring Boot Statistics` dashboard. You will see some metrics related to HTTP request. These come from the automated Spring Boot WebMvc instrumentation that uses the Micrometer API.
+
+How to shutdown the example?
+
+```
+docker compose down
+```

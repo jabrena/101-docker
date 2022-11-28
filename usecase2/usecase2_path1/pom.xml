@@ -6,8 +6,8 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.0.0-RC1</version>
-		<relativePath/>
+		<version>3.0.0</version>
+		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
 	<groupId>com.oracle.graal</groupId>
@@ -51,91 +51,20 @@
 		</dependency>
 	</dependencies>
 
-	<profiles>
-		<profile>
-			<id>jvm</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.springframework.boot</groupId>
-						<artifactId>spring-boot-maven-plugin</artifactId>
-						<configuration>
-							<imageName>jibber-benchmark:buildpacks-jvm.0.0.1-SNAPSHOT</imageName>
-							<image>
-								<buildpacks>
-									<!-- EMPTY -->
-								</buildpacks>
-							</image>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		<profile>
-			<id>native</id>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.graalvm.buildtools</groupId>
-						<artifactId>native-maven-plugin</artifactId>
-						<configuration>
-							<buildArgs>
-								<buildArg>--static</buildArg>
-								<buildArg>--libc=musl</buildArg>
-							</buildArgs>
-						</configuration>
-					</plugin>
-					<plugin>
-						<groupId>org.springframework.boot</groupId>
-						<artifactId>spring-boot-maven-plugin</artifactId>
-						<configuration>
-							<imageName>jibber-benchmark:buildpacks-native.0.0.1-SNAPSHOT</imageName>
-							<image>
-								<!--
-								<builder>paketobuildpacks/builder:full</builder>
-								-->
-								<buildpacks>
-									<buildpack>gcr.io/paketo-buildpacks/bellsoft-liberica:9.10</buildpack>
-									<buildpack>gcr.io/paketo-buildpacks/java-native-image</buildpack>
-								</buildpacks>
-								<env>
-									<!--
-									<BPE_APPEND_JAVA_TOOL_OPTIONS>-Djava.security.egd=file:/dev/./urandom</BPE_APPEND_JAVA_TOOL_OPTIONS>
-									-->
-									<BP_BINARY_COMPRESSION_METHOD>upx</BP_BINARY_COMPRESSION_METHOD>
-									<BP_NATIVE_IMAGE_BUILD_ARGUMENTS>--static</BP_NATIVE_IMAGE_BUILD_ARGUMENTS>
-									<!-- - -libc=musl -->
-									<pullPolicy>IF_NOT_PRESENT</pullPolicy>
-								</env>
-							</image>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
-
-	<repositories>
-		<repository>
-			<id>spring-milestones</id>
-			<name>Spring Milestones</name>
-			<url>https://repo.spring.io/milestone</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
-	<pluginRepositories>
-		<pluginRepository>
-			<id>spring-milestones</id>
-			<name>Spring Milestones</name>
-			<url>https://repo.spring.io/milestone</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</pluginRepository>
-	</pluginRepositories>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<imageName>jibber-benchmark:buildpacks-jvm.0.0.1-SNAPSHOT</imageName>
+					<image>
+						<buildpacks>
+							<!-- EMPTY -->
+						</buildpacks>
+					</image>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
