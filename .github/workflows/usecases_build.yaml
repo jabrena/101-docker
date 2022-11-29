@@ -24,13 +24,14 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           cache: 'maven'
 
-      - name: Build image & push
+      # name: Build image & push
         run: |
           cd usecases/demo
-          mvn -X spring-boot:build-image \
-            --batch-mode --no-transfer-progress \
-            -Dspring-boot.build-image.publish=true \
-            -Dspring-boot.build-image.imageName="jabrena/demo-ms:0.1.0" \
-            -DCI_REGISTRY=https://index.docker.io/v1 \
-            -DCI_REGISTRY_USER=${{ secrets.DOCKERHUB_USERNAME }} \
-            -DCI_REGISTRY_PASSWORD=${{ secrets.DOCKERHUB_PASSWORD }}
+          ./build-spring-boot.sh ${{ secrets.DOCKERHUB_USERNAME }} ${{ secrets.DOCKERHUB_PASSWORD }}
+      #    mvn -X spring-boot:build-image \
+      #      --batch-mode --no-transfer-progress \
+      #      -Dspring-boot.build-image.publish=true \
+      #      -Dspring-boot.build-image.imageName="jabrena/demo-ms:0.1.0" \
+      #      -DCI_REGISTRY=https://index.docker.io/v1 \
+      #      -DCI_REGISTRY_USER=${{ secrets.DOCKERHUB_USERNAME }} \
+      #      -DCI_REGISTRY_PASSWORD=${{ secrets.DOCKERHUB_PASSWORD }}
