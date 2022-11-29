@@ -7,7 +7,8 @@ PATH=${TOOLCHAIN_DIR}/bin:${PATH}
 
 set -x
 
-docker login "https://index.docker.io/v1/" -u="$1" -p="$2"
+#docker login "https://index.docker.io/v1/" -u="$1" -p="$2"
+docker login "https://ghcr.io" -u="$1" -p="$2"
 
 mvn spring-boot:build-image \
     --batch-mode --no-transfer-progress
