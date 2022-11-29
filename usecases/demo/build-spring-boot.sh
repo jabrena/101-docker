@@ -18,3 +18,4 @@ mvn spring-boot:build-image \
             -Dspring-boot.build-image.imageName="jabrena/demo-ms:0.1.0"
 
 #docker push docker.io/jabrena/demo-ms:0.1.0
+docker push "jabrena/demo-ms:0.1.0"
