@@ -8,7 +8,8 @@ set -x
 
 docker login -u="$1" -p="$2"
 
-mvn spring-boot:build-image
+mvn spring-boot:build-image \
+    --batch-mode --no-transfer-progress
 
 BUILD_VERSION=$(mvn help:evaluate -Dexpression=docker.image -q -DforceStdout)
 echo $BUILD_VERSION
