@@ -1,0 +1,31 @@
+name: Usecase Building Blocks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    paths:
+      - 'usecases/demo/**'
+      - '.github/workflows/usecases_build.yml'
+permissions:
+  contents: read
+jobs:
+  run:
+    name: Build
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v3
+      - uses: graalvm/setup-graalvm@v1
+        with:
+          version: 'dev'
+          java-version: '17'
+          components: 'native-image'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          cache: 'maven'
+
+      - name: Build image & push
+        run: |
+          cd usecases/demo
+          #./build-spring-boot.sh ${{ github.actor }} ${{ secrets.GITHUB_TOKEN }}
+          ./build-spring-boot.sh ${{ secrets.DOCKERHUB_USERNAME }} ${{ secrets.DOCKERHUB_PASSWORD }}
