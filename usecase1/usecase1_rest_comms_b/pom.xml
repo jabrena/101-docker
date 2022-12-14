@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.0.0-RC2</version>
+		<version>3.0.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
@@ -43,27 +43,6 @@
 			<optional>true</optional>
 		</dependency>
 	</dependencies>
-
-	<repositories>
-		<repository>
-			<id>spring-milestones</id>
-			<name>Spring Milestones</name>
-			<url>https://repo.spring.io/milestone</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
-	<pluginRepositories>
-		<pluginRepository>
-			<id>spring-milestones</id>
-			<name>Spring Milestones</name>
-			<url>https://repo.spring.io/milestone</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</pluginRepository>
-	</pluginRepositories>
 
 	<profiles>
 		<profile>
@@ -108,10 +87,7 @@
 						<configuration>
 							<imageName>ghcr.io/jabrena/usecase1-b:buildpacks-native.0.0.1-SNAPSHOT</imageName>
 							<image>
-								<!--
-                                <builder>dashaun/java-native-builder-arm64:7.37.0</builder>
-                                -->
-								<builder>dashaun/java-native-builder-multiarch:7.37.0</builder>
+								<builder>dashaun/builder:tiny</builder>
 								<!--
                                 <buildpacks>
                                     <buildpack>gcr.io/paketo-buildpacks/bellsoft-liberica:9.10</buildpack>
@@ -121,7 +97,8 @@
 								<env>
 									<BP_NATIVE_IMAGE>true</BP_NATIVE_IMAGE>
 									<BP_JVM_VERSION>17</BP_JVM_VERSION>
-									<BP_NATIVE_IMAGE_BUILD_ARGUMENTS>-J-Xmx6000m --static</BP_NATIVE_IMAGE_BUILD_ARGUMENTS>
+									<BP_NATIVE_IMAGE_BUILD_ARGUMENTS>-J-Xmx6000m</BP_NATIVE_IMAGE_BUILD_ARGUMENTS>
+									<!-- - -static -->
 									<!-- <BP_BINARY_COMPRESSION_METHOD>upx</BP_BINARY_COMPRESSION_METHOD> -->
 									<pullPolicy>IF_NOT_PRESENT</pullPolicy>
 								</env>

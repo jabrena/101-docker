@@ -9,8 +9,6 @@ curl http://localhost:8081/ -w '\n'
 curl http://localhost:8080/ -w '\n'
 docker-compose -f docker-compose-jvm.yml stop
 
-exit 0
-
 echo "Running docker compose native"
 docker-compose -f docker-compose-native.yml up -d
 
@@ -28,3 +26,9 @@ docker-compose -f docker-compose-native.yml stop
 #docker-compose logs -f usecase1b
 
 #docker stats
+
+#
+#docker run --rm --name native -d -p 8080:8080 ghcr.io/jabrena/usecase1-b:buildpacks-native.0.0.1-SNAPSHOT
+#docker run --name native2 -p 8081:8081 ghcr.io/jabrena/usecase1-b:buildpacks-native.0.0.1-SNAPSHOT
+#docker run --rm --name jvm -d -p 8081:8081 ghcr.io/jabrena/usecase1-b:buildpacks-jvm.0.0.1-SNAPSHOT
+
