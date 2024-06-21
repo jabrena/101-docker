@@ -1,0 +1,32 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.0.0-RC2'
+	id 'io.spring.dependency-management' version '1.1.0'
+	id 'org.graalvm.buildtools.native' version '0.9.17'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+	mavenCentral()
+	maven { url 'https://repo.spring.io/milestone' }
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
+def archSuffix = (System.properties['os.arch'] == 'aarch64') ? "-arm64v8" : ""
+def dockerRegistry = 'docker.io'
+tasks.named('bootBuildImage') {
+	builder = 'dashaun/java-native-builder-multiarch:7.37.0'
+	bootBuildImage.imageName = "${dockerRegistry}/${project.name}-native${archSuffix}:${project.version}"
+	environment = ['BP_NATIVE_IMAGE': 'true', 'BP_JVM_VERSION': '17', 'BP_NATIVE_IMAGE_BUILD_ARGUMENTS': '-J-Xmx6000m']
+}
